@@ -1,0 +1,27 @@
+.integration {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.integration__left {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.integration__right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.integration__question {
+  margin-left: 15px;
+}
+
+.fa {
+  color: #607D8B
+}

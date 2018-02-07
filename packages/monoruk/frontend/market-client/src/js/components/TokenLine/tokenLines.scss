@@ -1,0 +1,7 @@
+.access__controls {
+  display: flex;
+  align-items: center;
+  & > div {
+    display: flex !important;
+  }
+}

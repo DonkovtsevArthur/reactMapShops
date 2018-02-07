@@ -1,0 +1,30 @@
+.ui-best-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  & > * {
+    margin-bottom: 20px;
+  }
+  .crown {
+    width: 68px;
+    height: 55px;
+    color: #E3E6FA;
+    top: calc(40% - 34px);
+    right: calc(50% - 34px);
+  }
+  .name {
+    font-family: $base-font;
+    font-size: 16px;
+    color: $text-color;
+    font-weight: normal;
+    max-width: 40%;
+  }
+  .value {
+    font-size: 24px;
+    color: $text-color;
+    font-weight: 600;
+    font-family: $base-font;
+  }
+}

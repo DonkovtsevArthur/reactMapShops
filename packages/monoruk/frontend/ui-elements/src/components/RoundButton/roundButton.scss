@@ -1,0 +1,19 @@
+.ui-roundButton {
+  & > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 30px;
+    background-color: white;
+    border-radius: 50px;
+    border: 1px solid #DEDAE0;
+    height: 40px;
+    font-size: 13px;
+    color: $text-color;
+    text-decoration: none;
+    font-family: $base-font;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "lerna": "2.8.0",
+  "packages": ["packages/monoruk/frontend/*", "packages/monoruk/backend/*"],
+  "version": "independent",
+  "npmClient": "yarn"
+}

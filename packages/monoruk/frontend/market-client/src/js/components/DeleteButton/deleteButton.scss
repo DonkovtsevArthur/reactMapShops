@@ -1,0 +1,16 @@
+.button__delete {
+  color: red;
+  display: inline;
+  margin-right: 10px;
+  border: none;
+  background: none;
+  & > i {
+    color: black;
+  }
+  & + div {
+    display: inline !important;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

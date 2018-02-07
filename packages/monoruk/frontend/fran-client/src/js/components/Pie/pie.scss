@@ -1,0 +1,13 @@
+.pie {
+  display: flex;
+  & > * {
+    width: 50%;
+  }
+}
+
+.pie__colorblock {
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  margin-right: 10px;
+}

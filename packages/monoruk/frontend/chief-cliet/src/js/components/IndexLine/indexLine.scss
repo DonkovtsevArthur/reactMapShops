@@ -1,0 +1,50 @@
+.widget-select-filter {
+  font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  line-height: 27px;
+  color: #193651;
+  display: inline-block;
+
+  .Select {
+    display: inline-block;
+  }
+
+  .Select-clear {
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  .Select-input {
+    display: none !important;
+  }
+
+  .Select-control {
+    border: none;
+
+    &:hover {
+      box-shadow: none;
+    }
+  }
+
+  .Select.is-open > .Select-control .Select-arrow {
+    border-color: transparent transparent #4d6df7;
+  }
+
+  .Select-arrow {
+    border-color: #4d6df7 transparent transparent;
+  }
+
+  .Select-control,
+  .Select-multi-value-wrapper {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .Select--single > .Select-control .Select-value {
+    position: relative;
+  }
+}
+
+.widget-select-filter + .widget-graph-container {
+  margin-top: 30px;
+}

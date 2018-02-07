@@ -1,0 +1,36 @@
+.monitor-switch {
+  display: flex;
+  margin-bottom: 20px;
+  button {
+    background: transparent;
+    border: none;
+    transition: color 0.3s;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 6px 13.3px;
+    outline: none;
+
+    &.active {
+      font-weight: 600;
+      background-color: #ffc875;
+      border-radius: 50px;
+    }
+
+    &:not(.active) {
+      color: #b8b2c2;
+    }
+
+    &.disabled {
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    &:not(.disabled) {
+      cursor: pointer;
+    }
+  }
+
+  & + .widget-select-filter {
+    margin-top: 50px;
+  }
+}

@@ -1,0 +1,48 @@
+@import "postcss-reset-pc.scss";
+@import "./react-select.scss";
+@import "constants.scss";
+@import "common.scss";
+@import "../js/components/ErrorScreen/errorScreen.scss";
+@import "../js/components/Line/line.scss";
+@import "../js/components/TabsHeader/tabHeader.scss";
+@import "../js/components/TimeLine/timeline.scss";
+@import "../js/components/Loader/loader.scss";
+@import "../js/components/Integration/integration.scss";
+@import "../js/components/Title/title.scss";
+@import "../js/components/EmptyAccessTokens/emptyAccessTokens.scss";
+@import "../js/components/TokenLine/tokenLines.scss";
+@import "../js/components/AccessTokens/accessTokens.scss";
+@import "../js/components/AddFran/addFran.scss";
+@import "../js/components/Accordion/accordion.scss";
+@import "../js/components/DeleteButton/deleteButton.scss";
+@import "../js/components/Count/count.scss";
+@import "../js/components/IndexLine/indexLine.scss";
+@import "../js/components/Subtitle/subtitle.scss";
+@import "../js/components/Pie/pie.scss";
+@import "../js/components/Header/header.scss";
+// UI
+@import "../../../ui-elements/src/scss/main.scss";
+
+#root {
+  //padding: 34px 36px;
+}
+
+#root > .monitor-button {
+  //margin: 20px;
+  margin-top: 34px;
+  margin-right: 36px;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+#root > .dashboard-container .widgets {
+  // padding-left: 72px;
+  padding-left: 36px;
+  padding-right: 36px;
+}
+
+.fa-long-arrow-left {
+  color: #B8B2C2;
+  margin-right: 16px;
+  font-size: 14px;
+}
