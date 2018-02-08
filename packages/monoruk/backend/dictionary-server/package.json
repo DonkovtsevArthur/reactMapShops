@@ -1,0 +1,30 @@
+{
+  "name": "monoruk-dictionary-server",
+  "version": "0.0.1",
+  "description": "monoruk dictionary microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monoruk-dictionary-server . && sudo docker push kuchinsn/monoruk-dictionary-server"
+  },
+  "author": "kuchinsn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/boom": "^4.3.7",
+    "@types/fs-extra": "^4.0.3",
+    "@types/mongoose": "^4.7.24",
+    "@types/nats-hemera": "^1.0.0",
+    "@types/pino": "^4.7.0",
+    "@types/uuid": "^3.4.3",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "boom": "^5.2.0",
+    "mongoose": "^4.11.12",
+    "nats": "^0.7.20",
+    "nats-hemera": "^1.5.13",
+    "pino": "^4.7.2",
+    "fs-extra": "^4.0.2"
+  }
+}

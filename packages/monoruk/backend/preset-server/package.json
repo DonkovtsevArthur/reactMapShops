@@ -1,0 +1,26 @@
+{
+  "name": "monoruk-preset-server",
+  "version": "0.0.1",
+  "description": "monoruk-preset-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monoruk-preset-server . && sudo docker push kuchinsn/monoruk-preset-server"
+  },
+  "author": "kuchinsn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/boom": "^4.3.7",
+    "@types/nats-hemera": "^1.0.0",
+    "@types/pino": "^4.7.0",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "boom": "^5.2.0",
+    "hemera-zipkin": "^2.0.5",
+    "md5": "^2.2.1",
+    "nats": "^0.7.20",
+    "nats-hemera": "^2.4.3"
+  }
+}

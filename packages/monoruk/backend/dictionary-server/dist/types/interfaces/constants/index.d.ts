@@ -1,0 +1,14 @@
+export declare const VALID_TYPE: string[];
+export declare const VALID_STATUS: string[];
+export declare const DATA_SOURCE = "dataSource";
+export declare const WIDGET = "widget";
+export declare const APPLICATION = "application";
+export declare const VALID_APPS_TYPE: string[];
+export declare const VALID_COLUMN_TYPE: string[];
+export declare const VALID_PERIOD: string[];
+export declare const VALID_BUSINESS_TYPE: string[];
+export declare const SALT_WORK_FACTOR = 10;
+export declare const DICTIONARIES_PATH = "./userDictionaries";
+export declare const INDEX_ACTIONS: string[];
+export declare const PERIOD: string[];
+export declare const ACCESS_VALID_TYPE: string[];

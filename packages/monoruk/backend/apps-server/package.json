@@ -1,0 +1,29 @@
+{
+  "name": "monoruk-apps-server",
+  "version": "0.0.1",
+  "description": "monoruk apps microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monoruk-apps-server . && sudo docker push kuchinsn/monoruk-apps-server"
+  },
+  "author": "kuchinsn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/boom": "^4.3.7",
+    "@types/mongoose": "^4.7.24",
+    "@types/nats-hemera": "^1.0.0",
+    "@types/pino": "^4.7.0",
+    "@types/uuid": "^3.4.3",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "boom": "^5.2.0",
+    "mongoose": "^4.11.12",
+    "nats": "^0.7.20",
+    "nats-hemera": "^1.5.13",
+    "pino": "^4.7.2",
+    "uuid": "^3.1.0"
+  }
+}

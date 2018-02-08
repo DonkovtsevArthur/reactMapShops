@@ -1,0 +1,28 @@
+{
+  "name": "monoruk-widgets-server",
+  "version": "0.0.1",
+  "description": "monoruk widgets microservice",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monoruk-widgets-server . && sudo docker push kuchinsn/monoruk-widgets-server"
+  },
+  "author": "kuchinsn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/boom": "^4.3.7",
+    "@types/mongoose": "^4.7.24",
+    "@types/nats-hemera": "^1.0.0",
+    "@types/pino": "^4.7.0",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "boom": "^5.2.0",
+    "hemera-zipkin": "^2.0.4",
+    "mongoose": "^4.11.12",
+    "nats": "^0.7.20",
+    "nats-hemera": "^2.4.3",
+    "pino": "^4.7.2"
+  }
+}

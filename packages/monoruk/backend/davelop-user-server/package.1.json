@@ -1,0 +1,31 @@
+{
+  "name": "monoruk-access-server",
+  "version": "0.0.1",
+  "description": "monoruk access microservice",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest",
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monitor-config-server-access:mono . && sudo docker push kuchinsn/monitor-config-server-access:mono"
+  },
+  "author": "kuchinsn",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/boom": "^4.3.7",
+    "@types/mongoose": "^4.7.24",
+    "@types/nats-hemera": "^1.0.0",
+    "@types/pino": "^4.7.0",
+    "@types/uuid": "^3.4.3",
+    "dotenv": "^4.0.0"
+  },
+  "dependencies": {
+    "bcrypt": "^1.0.3",
+    "boom": "^5.2.0",
+    "jsonwebtoken": "^8.0.1",
+    "mongoose": "^4.11.12",
+    "nats": "^0.7.20",
+    "nats-hemera": "^1.5.13",
+    "pino": "^4.7.2",
+    "uuid": "^3.1.0"
+  }
+}
