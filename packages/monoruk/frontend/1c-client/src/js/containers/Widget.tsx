@@ -7,13 +7,15 @@ import Line from '../components/Line';
 import TimeLine from '../components/TimeLine';
 import { WidgetsActions } from '../actions/widgets';
 import { Store } from '../reducers';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 import { COLORS } from '../constants';
 // import CheckerWindgetIndex from '../components/CheckerWindgetIndex';
 
 export interface Actions {
   getData(id: string): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => void;
-  getDebtors5(id: string): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => void;
+  getDebtors5(
+    id: string
+  ): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => void;
   updateWidget(id: string, config: WidgetConfig): void;
 }
 
@@ -23,8 +25,8 @@ interface WidgetProps extends Actions {
 }
 
 class Widget extends React.Component<WidgetProps, {}> {
-  constructor() {
-    super();
+  constructor(props: WidgetProps) {
+    super(props);
     this.getContent = this.getContent.bind(this);
     this.getCheckerStatus = this.getCheckerStatus.bind(this);
     this.handleCheck = this.handleCheck.bind(this);
@@ -38,25 +40,27 @@ class Widget extends React.Component<WidgetProps, {}> {
   getContent() {
     if (this.props.widgetData) {
       switch (this.props.widgetData.status) {
-      case 'request':
-        return <Loader />;
-      case 'error':
-        return <ErrorScreen errorText="Не удалось получить данные" />;
-      case 'success':
-        return this.props.widgetData.debtors5 ? (
-          <UI.VerticalContainer>
+        case 'request':
+          return <Loader />;
+        case 'error':
+          return <ErrorScreen errorText="Не удалось получить данные" />;
+        case 'success':
+          return this.props.widgetData.debtors5 ? (
+            <UI.VerticalContainer>
+              <Line graphData={this.props.widgetData.graphData} />
+              <UI.PieGraphAndList
+                title="Список должников"
+                graphData={this.props.widgetData.debtors5}
+                colors={COLORS}
+                last={false}
+                currency
+              />
+            </UI.VerticalContainer>
+          ) : (
             <Line graphData={this.props.widgetData.graphData} />
-            <UI.PieGraphAndList
-              title="Список должников"
-              graphData={this.props.widgetData.debtors5}
-              colors={COLORS}
-              last={false}
-              currency
-            />
-          </UI.VerticalContainer>
-        ) : <Line graphData={this.props.widgetData.graphData} />;
-      default:
-        return <Loader />;
+          );
+        default:
+          return <Loader />;
       }
     }
     return <Loader />;
@@ -73,20 +77,23 @@ class Widget extends React.Component<WidgetProps, {}> {
     const appId = widgetConfig.appId;
     const index = widgetConfig.index;
     switch (index) {
-    case 'contractsReceivables':
-      this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'receivables' });
-      return;
-    case 'contractsPayables':
-      this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'payables' });
-      return;
-    case 'receivables':
-      this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'contractsReceivables' });
-      return;
-    case 'payables':
-      this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'contractsPayables' });
-      return;
-    default:
-      return;
+      case 'contractsReceivables':
+        this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'receivables' });
+        return;
+      case 'contractsPayables':
+        this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'payables' });
+        return;
+      case 'receivables':
+        this.props.updateWidget(appId, {
+          ...this.props.widgetConfig,
+          index: 'contractsReceivables'
+        });
+        return;
+      case 'payables':
+        this.props.updateWidget(appId, { ...this.props.widgetConfig, index: 'contractsPayables' });
+        return;
+      default:
+        return;
     }
   }
   render() {

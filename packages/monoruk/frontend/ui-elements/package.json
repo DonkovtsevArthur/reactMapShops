@@ -10,7 +10,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
-  "author": "",
+  "author": "Kuchinsn Sergey",
   "license": "ISC",
   "dependencies": {
     "@storybook/addon-actions": "^3.3.11",

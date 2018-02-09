@@ -41,7 +41,7 @@ const config: ServerConfiguration = {
   port: process.env.PORT || '7000',
   visionConfig: {
     engines: { html: Handlebars as any },
-    path: path.resolve(__dirname, './templates')
+    path: path.resolve(__dirname, './public')
   },
   registerModules: [Inert, Vision as any]
 };
