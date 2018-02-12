@@ -1,6 +1,10 @@
 {
   "lerna": "2.8.0",
-  "packages": ["packages/monoruk/frontend/*", "packages/monoruk/backend/*"],
+  "packages": [
+    "packages/monoruk/frontend/*",
+    "packages/monoruk/backend/*",
+    "packages/1c-proxy/backend/*"
+  ],
   "version": "independent",
   "npmClient": "yarn"
 }

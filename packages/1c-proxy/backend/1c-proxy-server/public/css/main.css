@@ -1,0 +1,196 @@
+body {
+    font-family: "Open Sans";
+    color: #000000;
+}
+
+h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+h2 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 22px;
+  font-weight: normal;
+}
+
+h3 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+.container {
+    margin: 0 auto;
+    max-width: 1000px;
+}
+
+.hide {
+    display: none !important;
+    visibility: hidden !important;
+}
+
+.show {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.baseLink, .resetButton {
+    display: inline-block; 
+    -ms-touch-action: manipulation; 
+    cursor: pointer; 
+    border: 1px solid #ff7800; 
+    line-height: 1.42857143; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    background-color: transparent; 
+    border-radius: 26px; 
+    color: #ff7800; 
+    padding: 7px 30px; 
+    font-size: 16px; 
+    text-decoration: none; 
+    font-family: 'Ubuntu';
+}
+
+.baseLink:hover, .resetButton:hover {
+    display: inline-block; 
+    -ms-touch-action: manipulation; 
+    cursor: pointer; 
+    border: 1px solid #ff7800; 
+    line-height: 1.42857143; 
+    -webkit-user-select: none; 
+    -moz-user-select: none; 
+    -ms-user-select: none; 
+    user-select: none; 
+    background-color: #ff7800; 
+    border-radius: 26px; 
+    color: #fff; 
+    padding: 7px 30px; 
+    font-size: 16px; 
+    font-weight: 500!important; 
+    text-decoration: none; 
+    font-family: 'Ubuntu';
+}
+
+input {
+    height: 20px;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #222222;
+    background-color: #ffffff;
+    background-image: none;
+    border: 1px solid #dedede;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    font-family: 'Ubuntu';
+}
+
+
+.linkToBase {
+    text-align: right;
+}
+
+.baseLink:hover {
+    opacity: 1;
+}
+
+.mainTable {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+td {
+    font-size: 18px;
+    border-top: 1px solid #546e7a;
+    border-bottom: 1px solid #546e7a;
+    padding: 10px;
+    color: #546e7a;
+}
+
+.contact {
+    font-size: 14px;
+}
+
+.contactButton {
+    font-size: 13px;
+    padding: 3px;
+    height: auto;
+    line-height: 24px;
+}
+
+.functionalButton {
+    text-align: right;
+}
+
+.lable {
+    display: block;
+    font-weight: normal;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.warning {
+    font-weight: normal;
+    color: red;
+    display: block;
+    margin-top: 5px;
+}
+
+.resetButton {
+    font-size: 11px;
+    color: #546e7a;
+    border: 1px solid #546e7a;
+    padding: 5px 10px 5px 10px;
+}
+
+.resetButton:hover {
+    font-size: 11px;
+    cursor: pointer;
+    background: #546e7a;
+    color: white;
+    border: 1px solid #546e7a;
+    padding: 5px 10px 5px 10px;
+}
+
+.resetTd {
+    width: 110px;
+    text-align: right;
+    border-bottom: 0;
+}
+
+.lableReset {
+    font-size: 14px;
+}
+
+.resetSuccess {
+    margin: 0;
+    font-size: 14px;
+}
+
+
+.resetError {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    color: #f00;
+    font-weight: normal;
+}
+
+.instructions {
+    text-align: right;
+}
+
+.support {
+    text-align: right;
+}
+
+.supportKey {
+    font-size: 14px;
+}
