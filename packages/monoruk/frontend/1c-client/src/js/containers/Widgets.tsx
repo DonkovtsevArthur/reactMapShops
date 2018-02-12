@@ -11,8 +11,8 @@ import Loader from '../components/Loader';
 export type WidgetsProps = WidgetsStore & WidgetsActionCreators;
 
 class Container extends React.Component<WidgetsProps, {}> {
-  constructor() {
-    super();
+  constructor(props: WidgetsProps) {
+    super(props);
     this.getContent = this.getContent.bind(this);
   }
   componentWillMount() {
@@ -20,14 +20,14 @@ class Container extends React.Component<WidgetsProps, {}> {
   }
   getContent() {
     switch (this.props.status) {
-    case 'request':
-      return <Loader />;
-    case 'error':
-      return <ErrorScreen errorText="Ошибка при получении виджетов" />;
-    case '':
-      return <TabsHeader {...this.props}/>;
-    default:
-      return <Loader />;
+      case 'request':
+        return <Loader />;
+      case 'error':
+        return <ErrorScreen errorText="Ошибка при получении виджетов" />;
+      case '':
+        return <TabsHeader {...this.props} />;
+      default:
+        return <Loader />;
     }
   }
   render() {
@@ -39,10 +39,12 @@ const mapStateToProps = (state: Store) => ({
   ...state.widgets
 });
 
-const mapDispatchToProps = (dispatch: Redux.Dispatch<Store>) => (
-  Redux.bindActionCreators<any>(widgetsActions, dispatch)
-);
+const mapDispatchToProps = (dispatch: Redux.Dispatch<Store>) =>
+  Redux.bindActionCreators<any>(widgetsActions, dispatch);
 
-const Widgets = connect<WidgetsStore, WidgetsActionCreators, {}>(mapStateToProps, mapDispatchToProps)(Container);
+const Widgets = connect<WidgetsStore, WidgetsActionCreators, {}>(
+  mapStateToProps,
+  mapDispatchToProps
+)(Container);
 
 export default Widgets;

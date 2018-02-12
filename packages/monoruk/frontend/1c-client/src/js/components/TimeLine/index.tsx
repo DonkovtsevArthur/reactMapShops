@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as UI from 'material-ui';
+import './timeline.scss';
 
 interface TimeLineProps {
   period: string;
@@ -7,7 +8,7 @@ interface TimeLineProps {
   updateWidget(id: string, config: { period: string }): void;
 }
 
-const TimeLine: React.StatelessComponent<TimeLineProps> = (props) => (
+const TimeLine: React.StatelessComponent<TimeLineProps> = props => (
   <div className="timeline">
     <UI.FlatButton
       label="Месяц"

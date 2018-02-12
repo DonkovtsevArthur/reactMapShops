@@ -1,8 +1,6 @@
 import * as React from 'react';
-import {
-  VictoryContainer,
-  VictoryPie
-} from 'victory';
+
+import { VictoryContainer, VictoryPie } from 'victory';
 
 export interface Data {
   x: string;
@@ -40,7 +38,7 @@ const Pie: React.StatelessComponent<PieProps> = props => (
         padAngle={props.padAngle}
         cornerRadius={props.cornerRadius}
         standalone={false}
-        labels={(d) => ''}
+        labels={d => ''}
       />
     </VictoryContainer>
   </div>
