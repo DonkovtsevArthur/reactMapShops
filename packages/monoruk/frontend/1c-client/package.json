@@ -10,15 +10,12 @@
       "yarn run clear && NODE_ENV=production webpack -p --config ./configs/webpack.config.prod.js",
     "clear": "rm -r ./public",
     "buildContainer":
-      "docker build -t kuchinsn/integration1c-front . && docker push kuchinsn/integration1c-front"
+      "docker build -t kuchinsn/monoruk-1c-client . && docker push kuchinsn/monoruk-1c-client"
   },
   "author": "gLeip",
   "devDependencies": {
     "@types/axios": "^0.14.0",
-    "@types/handlebars": "^4.0.36",
-    "@types/hapi": "^16.1.10",
     "@types/history": "^4.6.0",
-    "@types/inert": "^4.2.3",
     "@types/material-ui": "^0.18.3",
     "@types/moment": "^2.13.0",
     "@types/node": "^8.9.1",
@@ -58,14 +55,11 @@
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
-    "@types/react": "^16.0.36",
-    "@types/react-hot-loader": "^3.0.5",
     "axios": "^0.17.0",
     "classnames": "^2.2.5",
     "handlebars": "^4.0.10",
     "hapi": "^16.6.0",
     "history": "^4.7.2",
-    "inert": "^4.2.1",
     "material-ui": "^0.19.4",
     "moment": "^2.19.1",
     "monoruk-ui-elements": "^0.1.0",

@@ -3,7 +3,6 @@ import * as ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './App';
 import '../scss/main.scss';
-import '../../../ui-elements/src/scss/main.scss';
 
 const render = (Component: React.StatelessComponent) =>
   ReactDom.render(
