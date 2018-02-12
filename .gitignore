@@ -1,4 +1,4 @@
 node_modules
 dist
 public
-lerna-debug.log
+./lerna-debug.log
