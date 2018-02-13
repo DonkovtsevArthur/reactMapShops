@@ -14,25 +14,26 @@ const changeEmailRouter = require('./routes/changeEmailRouter');
 const resetPassword = require('./routes/resetPassword');
 const getEvotorToken = require('./routes/getEvotorToken');
 const {
-  DEFAULT_EXPIRES,
-  HOLD_QUEUE,
-  HOLD_EXCHANGE,
   ROUTING_KEY,
   ACTIVE_EXCHANGE,
-  ACTIVE_QUEUE
+  ACTIVE_QUEUE,
 } = require('./constants');
+
+const host = process.env.RABBIT_HOST;
+const username = process.env.RABBIT_USER;
+const password = process.env.RABBIT_PASSWORD;
 
 const goodOptions = {
   includes: {
     request: ['headers', 'payload'],
-    response: ['payload']
+    response: ['payload'],
   },
   reporters: {
     logstash: [
       {
         module: 'good-squeeze',
         name: 'Squeeze',
-        args: [{ response: '*', request: '*' }]
+        args: [{ response: '*', request: '*' }],
       },
       {
         module: 'good-hapi-graylog2',
@@ -42,17 +43,17 @@ const goodOptions = {
             port: process.env.GRAYLOG_PORT,
             facility: `ladcloud-proxy-${process.env.GRAYLOG_TYPE}`,
             hostname: 'ladcloud.lad24.ru',
-            adapter: 'tcp'
-          }
-        ]
-      }
-    ]
-  }
+            adapter: 'tcp',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 module.exports = function returnServer(config) {
   dbConnect()
-    .then(models => {
+    .then((models) => {
       const server = new Hapi.Server();
       server.connection({ port: config.port });
 
@@ -64,9 +65,9 @@ module.exports = function returnServer(config) {
         [
           {
             register: good,
-            options: goodOptions
+            options: goodOptions,
           },
-          Inert
+          Inert,
         ],
         () => {
           auth(server);
@@ -78,9 +79,9 @@ module.exports = function returnServer(config) {
               directory: {
                 path: './public/css',
                 redirectToSlash: true,
-                index: true
-              }
-            }
+                index: true,
+              },
+            },
           });
 
           server.route({
@@ -90,9 +91,9 @@ module.exports = function returnServer(config) {
               directory: {
                 path: './public/js',
                 redirectToSlash: true,
-                index: true
-              }
-            }
+                index: true,
+              },
+            },
           });
 
           server.route({
@@ -102,9 +103,9 @@ module.exports = function returnServer(config) {
               directory: {
                 path: './public/img',
                 redirectToSlash: true,
-                index: true
-              }
-            }
+                index: true,
+              },
+            },
           });
 
           server.route({
@@ -119,7 +120,7 @@ module.exports = function returnServer(config) {
               pino.info('404 -------------------------------');
               reply().code(404);
               return true;
-            }
+            },
           });
 
           server.route(evotorUserRoutes);
@@ -130,29 +131,33 @@ module.exports = function returnServer(config) {
           server.route(resetPassword);
           server.route(getEvotorToken);
 
-          server.start(err => {
+          server.start((err) => {
             if (err) {
               throw err;
             }
             pino.info('Server running at:', server.info.uri);
           });
           rabbit
-            .connect(`amqp://${process.env.RABBIT_HOST}`)
+            .connect(`amqp://${username}:${password}@${host}`)
             .then(connection => connection.createChannel())
-            .then(chanel => {
+            .then((chanel) => {
               chanel.assertExchange(ACTIVE_EXCHANGE, 'direct');
               chanel.assertQueue(ACTIVE_QUEUE, { durable: true });
               chanel.bindQueue(ACTIVE_QUEUE, ACTIVE_EXCHANGE, ROUTING_KEY);
-              chanel.consume(ACTIVE_QUEUE, message => {
-                const msg = JSON.parse(message.content.toString());
-                pino.info('New Message!!!', msg);
+              chanel.consume(ACTIVE_QUEUE, (message) => {
+                const msg = JSON.parse(message.content);
+                pino.info('url ====', msg.url);
+                pino.info('------------------------------------ New Message!');
+                pino.info(msg);
+                server.inject(msg);
+                chanel.ack(message);
               });
             })
             .catch(error => pino.error(error));
-        }
+        },
       );
     })
-    .catch(err => {
+    .catch((err) => {
       pino.error(err);
       pino.error(err.stack);
     });

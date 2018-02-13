@@ -38,6 +38,8 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
+          const bug = new BugHolder(request);
+          bug.send();
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
@@ -54,7 +56,6 @@ module.exports = {
 
   documents: function documents(request, reply) {
     const { hash, url } = helperAuth(request, reply);
-
     agent
       .put(`${url}/hs/evotor/documents/stores/${request.params.storeUuid}`)
       .set('Authorization', `Basic ${hash}`)
@@ -70,10 +71,8 @@ module.exports = {
         }
 
         sendingNotifications(response.body, request.auth.credentials, request.db.User, 3);
-
-        pino.info(response.body);
         reply(response.body);
         return true;
       });
-  }
+  },
 };
