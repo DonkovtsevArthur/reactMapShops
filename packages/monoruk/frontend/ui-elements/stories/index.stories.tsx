@@ -20,8 +20,11 @@ storiesOf('Кнопки', module).add('Round', () => (
 stories.add('Круговой график со списком', () => {
   const title = text('Заголовок', 'Список должников');
   const data = object('Строка', { x: 'Должник 1', y: 1000 });
-  const graphData = array('Данные', [data]);
-  const colors = array('Цвета', ['red', 'green']);
+  const data1 = object('Строка', { x: 'Должник 2', y: 1300 });
+  const data2 = object('Строка', { x: 'Должник 3', y: 1560 });
+  const data3 = object('Строка', { x: 'Должник 4', y: 800 });
+  const graphData = array('Данные', [data, data1, data2, data3]);
+  const colors = array('Цвета', ['red', 'green', 'blue', 'yellow']);
   const currency = boolean('Показывать знак валюты?', true);
   return (
     <PieGraphAndList
