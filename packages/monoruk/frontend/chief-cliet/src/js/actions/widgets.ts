@@ -38,11 +38,11 @@ export interface ActiveDashboards extends Dashboard {
 export interface WidgetsActionCreators {
   getData(
     id: string
-  ): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => Axios.AxiosPromise;
+  ): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => Promise<void>;
   getAllData(
     id: string
-  ): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => Axios.AxiosPromise;
-  getSource(): void;
+  ): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => Promise<void>;
+  getSource(): (dispatch: Redux.Dispatch<WidgetsActions>, getStore: () => Store) => Promise<void>;
   waitProcessStart(): Redux.Action;
   updateWidget(id: string, period: string): void;
   updateAllDataWidget(id: string, period: string): void;

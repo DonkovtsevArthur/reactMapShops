@@ -23,7 +23,9 @@ export type MainProps = AuthStore & AuthActionCreators;
 class Container extends React.Component<MainProps, {}> {
   componentWillMount() {
     const { token } = QueryString.parse(window.location.search);
-    this.props.setUserInfo(token);
+    if (!this.props.orgId || !this.props.token || !this.props.appType) {
+      this.props.setUserInfo(token);
+    }
   }
   render() {
     return (

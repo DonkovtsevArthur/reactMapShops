@@ -38,7 +38,7 @@ const marketsActions: DashboardsActionCreators = {
         const period = widgetConfigs.filter(item => item.appId === widgetsId[0])[0].period;
         const hash = Hash.sha1({ period });
         dispatch({ type: action.REQUEST_DASHBOARDS_PROCEEDS });
-        let config: WidgetConfig;
+        let config: WidgetConfig | undefined;
         widgetsId.some(widgetId => {
           return widgetConfigs.some(item => {
             const sameId = item.appId === widgetId;
@@ -60,7 +60,7 @@ const marketsActions: DashboardsActionCreators = {
           });
         });
         if (config) {
-          const token = dashboard.widgets.filter(item => item.i === config.appId)[0].token;
+          const token = dashboard.widgets.filter(item => item.i === (config as WidgetConfig).appId)[0].token;
           const query = getDashboardsProceeds(config, orgId);
           const graphDataResponse: Axios.AxiosResponse<Data[]> = await Axios.default.post(
             `${API_MONITOR}/data/get`,

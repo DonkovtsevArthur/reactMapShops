@@ -33,6 +33,7 @@ const authActions: AuthActionCreators = {
   setUserInfo(token) {
     return async (dispatch: Redux.Dispatch<Store>) => {
       try {
+        console.info('Запрос на авторизацию');
         dispatch({ type: auth.REQUEST_LK_TOKEN });
         const response: AxiosResponse<Auth> = await axios.post(`${API_URL}/authByEvotorToken`, {
           token

@@ -13,7 +13,7 @@ import { IntegrationStore } from '../reducers/integration';
 import { Store, Location } from '../reducers';
 import { WidgetsStore, WidgetConfig } from '../reducers/widgets';
 import { DashboardsStore } from '../reducers/dashboards';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 import Widget from './Widget';
 import TimeLine from '../components/TimeLine';
 import Dashboards from './Dashboards';

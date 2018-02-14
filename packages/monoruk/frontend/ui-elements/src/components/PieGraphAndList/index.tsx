@@ -46,7 +46,7 @@ export interface PieGraphAndList {
 const PieGraphAndList: React.StatelessComponent<PieGraphAndList> = props => (
   <ElementWindow>
     <Title text={props.title} />
-    <HorizontalContainer>
+    <HorizontalContainer className="container__pie">
       <VerticalContainer>
         {props.graphData.map((element, i, arr) => (
           <ListElement

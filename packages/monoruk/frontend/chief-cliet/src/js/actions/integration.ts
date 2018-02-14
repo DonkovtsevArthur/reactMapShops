@@ -22,7 +22,7 @@ export interface IntegrationActions {
 
 export interface IntegrationActionsCreators {
   getTokens(appId: string): void;
-  share(): void;
+  share(): (dispatch: Redux.Dispatch<IntegrationActions>, getStore: () => Store) => Promise<void>;
   on(token: string): void;
   off(token: string): void;
   remove(token: string): void;
