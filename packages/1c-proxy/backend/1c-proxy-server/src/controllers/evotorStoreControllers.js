@@ -3,7 +3,6 @@ const pino = require('pino')();
 const helperAuth = require('../lib/helperAuth');
 const sendingNotifications = require('../lib/notification/sendingNotifications');
 const sendErrorToAdmin = require('../lib/notification');
-const BugHolder = require('../lib/BugHolder');
 
 module.exports = {
   devices: function devices(request, reply) {
@@ -16,8 +15,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
-          const bug = new BugHolder(request);
-          bug.send();
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
@@ -46,8 +44,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
-          const bug = new BugHolder(request);
-          bug.send();
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
@@ -76,8 +73,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
-          const bug = new BugHolder(request);
-          bug.send();
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
