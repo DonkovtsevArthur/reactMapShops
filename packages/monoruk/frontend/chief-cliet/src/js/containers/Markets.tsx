@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { Store } from '../reducers';
 import marketsActions, { MarketsActionCreators } from '../actions/markets';
 import { MarketsStore } from '../reducers/markets';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 import Loader from '../components/Loader';
 import ErrorScreen from '../components/ErrorScreen';
 

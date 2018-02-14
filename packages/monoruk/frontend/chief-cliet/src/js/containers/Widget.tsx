@@ -9,7 +9,7 @@ import Count from '../components/Count';
 import Pie from '../components/Pie';
 import { getTitleParamFromConfig } from '../helper';
 import IndexLine from '../components/IndexLine';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 
 export interface Actions {
   getData(
@@ -18,6 +18,11 @@ export interface Actions {
   updateWidget(id: string, period: string): void;
   subscribe(id: string): void;
   updateIndexDynamicWidgets(index: string, indexAction: string): void;
+}
+
+interface PieProps {
+  x: string;
+  y: number;
 }
 
 export interface Props {
@@ -93,7 +98,7 @@ class Widget extends React.Component<WidgetProps, {}> {
       case 'pie':
         return (
           <Pie
-            graphData={this.props.graphData}
+            graphData={this.props.graphData as PieProps[]}
             section={this.props.widgetConfig.section}
             measure={measure}
             title={getPieTitle(this.props.widgetConfig, this.props.allInfo)}

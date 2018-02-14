@@ -8,7 +8,7 @@ import dashboardsActions, {
   DashboardsActionCreators
 } from '../actions/dashboards';
 import { DashboardsStore } from '../reducers/dashboards';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 import * as Material from 'material-ui';
 
 export interface DashboardsProps {

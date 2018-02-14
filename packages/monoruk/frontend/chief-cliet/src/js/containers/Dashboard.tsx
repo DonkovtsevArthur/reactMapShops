@@ -16,7 +16,7 @@ import { MarketsStore } from '../reducers/markets';
 import { Store, Location } from '../reducers';
 import { WidgetsStore, WidgetConfig } from '../reducers/widgets';
 import ErrorScreen from '../components/ErrorScreen';
-import UI from '../../../../ui-elements/src';
+import UI from 'monoruk-ui-elements';
 import Widget from './Widget';
 import TimeLine from '../components/TimeLine';
 import Markets from './Markets';

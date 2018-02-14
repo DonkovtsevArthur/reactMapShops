@@ -1,7 +1,5 @@
-FROM node
+FROM nginx
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package.json /usr/src/app/
-RUN npm install --production
-COPY . /usr/src/app
-CMD [ "node", "index.js"]
+ADD public /usr/src/app/
+COPY nginx.conf /etc/nginx/nginx.conf

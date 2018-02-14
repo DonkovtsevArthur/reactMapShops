@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as ReactDom from 'react-dom';
 import * as ReactRedux from 'react-redux';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -22,4 +21,4 @@ const App = () => (
   </ReactRedux.Provider>
 );
 
-ReactDom.render(<App />, document.getElementById('root'));
+export default App;
