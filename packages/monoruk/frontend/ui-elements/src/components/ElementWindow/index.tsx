@@ -1,7 +1,12 @@
 import * as React from 'react';
 
-const ElementWindow: React.StatelessComponent<{}> = props => (
-  <div className="elementWindow">
+export interface ElementWindowProps {
+  className?: string;
+  style?: any;
+}
+
+const ElementWindow: React.StatelessComponent<ElementWindowProps> = props => (
+  <div className={`elementWindow ${props.className}`} style={props.style}>
     {props.children}
   </div>
 );

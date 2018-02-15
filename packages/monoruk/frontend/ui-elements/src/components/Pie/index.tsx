@@ -39,6 +39,10 @@ const Pie: React.StatelessComponent<PieProps> = props => (
         cornerRadius={props.cornerRadius}
         standalone={false}
         labels={d => ''}
+        animate={{
+          duration: 500,
+          onLoad: { duration: 500 }
+        }}
       />
     </VictoryContainer>
   </div>
