@@ -13,6 +13,7 @@ module.exports = [
       validate: {
         query: {
           interval: Joi.string().optional(),
+          session: Joi.string().optional(),
         },
       },
     },

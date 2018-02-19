@@ -13,24 +13,26 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   return `
   SELECT DISTINCT
     sessionNumber,
-    sum(closeResultSum) as sum,
+    floor(sum(closeResultSum), 2) as sum,
     minIf(openDate, documentType ='OPEN_SESSION') as openDate,
     maxIf(closeDate, documentType ='CLOSE_SESSION') as closeDate,
     count(documentUuid) as receipts,
     any(userUuid) as user,
     countIf(documentUuid, documentType = 'PAYBACK') as paybacks,
-    sumIf(closeResultSum, documentType = 'PAYBACK') as paybacksSum,
-    sumIf(closeResultSum, and(paymentType = 'CASH', documentType = 'PAYBACK')) as sumCashPayback,
-    sumIf(closeResultSum, and(paymentType = 'CARD', documentType = 'PAYBACK')) as sumCardPayback,
-    sumIf(closeResultSum, and(paymentType = 'CASH', documentType = 'SELL')) as sumCashSell,
-    sumIf(closeResultSum, and(paymentType = 'CARD', documentType = 'SELL')) as sumCardSell
-  FROM documents
-  WHERE 
-    plus(closeDate, timeZone) <= ${max} AND 
-    plus(closeDate, timeZone) >= ${min} AND 
-    userUuid = '${uuid}' AND 
-    storeUuid = '${storeUuid}'
+    floor(sumIf(closeResultSum, documentType = 'PAYBACK'), 2) as paybacksSum,
+    floor(sumIf(closeResultSum, and(paymentType = 'CASH', documentType = 'PAYBACK')), 2) as sumCashPayback,
+    floor(sumIf(closeResultSum, and(paymentType = 'CARD', documentType = 'PAYBACK')), 2) as sumCardPayback,
+    floor(sumIf(closeResultSum, and(paymentType = 'CASH', documentType = 'SELL')), 2) as sumCashSell,
+    floor(sumIf(closeResultSum, and(paymentType = 'CARD', documentType = 'SELL')), 2) as sumCardSell
+  FROM (
+    SELECT * FROM documents
+    WHERE 
+      plus(closeDate, timeZone) <= ${max} AND 
+      plus(closeDate, timeZone) >= ${min} AND 
+      userUuid = '${uuid}' AND 
+      storeUuid = '${storeUuid}'
+  )
   GROUP BY
-    sessionNumber, paymentType
+    sessionNumber
   `;
 };

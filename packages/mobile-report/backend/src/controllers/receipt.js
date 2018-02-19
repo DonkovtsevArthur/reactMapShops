@@ -26,6 +26,7 @@ module.exports = {
       const user = request.auth.credentials;
       const storeUuid = request.params.storeUuid;
       const interval = request.query.interval;
+      const session = request.query.session;
 
       const receipt = [];
       const {
@@ -41,7 +42,8 @@ module.exports = {
           gtCloseDate,
           storeUuid,
           steps,
-          moment(user.storeOpen, 'hmm').format('HH') * 60 * 60
+          moment(user.storeOpen, 'hmm').format('HH') * 60 * 60,
+          session
         )
       );
       stream.on('error', (error) => {

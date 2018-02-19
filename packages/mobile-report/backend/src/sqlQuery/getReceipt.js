@@ -1,4 +1,4 @@
-module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
+module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset, session) => {
   let min;
   let max;
   const today = ltCloseDate === gtCloseDate;
@@ -10,6 +10,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
     max = `plus(toDateTime(toDate(plus(${ltCloseDate}, timeZone))), ${free ? 0 : offset})`;
     min = `plus(toDateTime(toDate(plus(${gtCloseDate}, timeZone))), ${free ? 0 : offset})`;
   }
+  const getSession = session => session ? `AND sessionNumber = ${session}` : null;
   return `
   SELECT DISTINCT
     documentUuid,
@@ -26,6 +27,6 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   plus(closeDate, timeZone) >= ${min} AND 
   userUuid = '${uuid}' AND 
   storeUuid = '${storeUuid}' AND
-  documentType = 'SELL'
+  documentType = 'SELL' ${getSession(session)}
   `;
 };
