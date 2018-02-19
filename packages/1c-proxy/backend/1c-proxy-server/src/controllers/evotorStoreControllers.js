@@ -15,6 +15,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
@@ -43,6 +44,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;
@@ -71,6 +73,7 @@ module.exports = {
       .end((error, response) => {
         if (error) {
           pino.error(error);
+          request.rabbit.send(request);
           sendErrorToAdmin(request, error, url);
           reply(error);
           return false;

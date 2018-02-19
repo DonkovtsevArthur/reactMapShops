@@ -1,21 +1,25 @@
-0 silly input [ 'clean' ]
-1 silly flags { _: [ 'clean' ],
+0 silly input [ 'eslint-plugin-prettier' ]
+1 silly flags { _: [ 'add' ],
 1 silly flags   'reject-cycles': false,
 1 silly flags   rejectCycles: false,
-1 silly flags   scope: 'monorul-chief-client' }
+1 silly flags   scope: '1c-proxy-server',
+1 silly flags   dev: true,
+1 silly flags   args: [ 'eslint-plugin-prettier' ] }
 2 verbose rootPath /home/kuchinsn/web/lad24-projects
 3 info version 2.8.0
-4 silly existsSync /home/kuchinsn/web/lad24-projects/VERSION
-5 info versioning independent
-6 info scope monorul-chief-client
-7 error EPACKAGES Errored while collecting packages and package graph
-8 error Error: No packages found that match scope 'monorul-chief-client'
-8 error     at Function.filterPackages (/usr/lib/node_modules/lerna/lib/PackageUtilities.js:226:17)
-8 error     at CleanCommand.runPreparations (/usr/lib/node_modules/lerna/lib/Command.js:328:60)
-8 error     at /usr/lib/node_modules/lerna/lib/Command.js:204:18
-8 error     at new Promise (<anonymous>)
-8 error     at CleanCommand.run (/usr/lib/node_modules/lerna/lib/Command.js:188:14)
-8 error     at Object.handler (/usr/lib/node_modules/lerna/lib/commands/CleanCommand.js:43:14)
-8 error     at Object.self.runCommand (/usr/lib/node_modules/lerna/node_modules/yargs/lib/command.js:233:22)
-8 error     at Object.Yargs.self._parseArgs (/usr/lib/node_modules/lerna/node_modules/yargs/yargs.js:990:30)
-8 error     at Object.Yargs.self.parse (/usr/lib/node_modules/lerna/node_modules/yargs/yargs.js:532:23)
+4 silly isInitialized
+5 silly isInitialized true
+6 silly existsSync /home/kuchinsn/web/lad24-projects/VERSION
+7 info versioning independent
+8 info scope 1c-proxy-server
+9 error EPACKAGES Errored while collecting packages and package graph
+10 error Error: No packages found that match scope '1c-proxy-server'
+10 error     at Function.filterPackages (/usr/lib/node_modules/lerna/lib/PackageUtilities.js:226:17)
+10 error     at AddCommand.runPreparations (/usr/lib/node_modules/lerna/lib/Command.js:328:60)
+10 error     at /usr/lib/node_modules/lerna/lib/Command.js:204:18
+10 error     at new Promise (<anonymous>)
+10 error     at AddCommand.run (/usr/lib/node_modules/lerna/lib/Command.js:188:14)
+10 error     at Object.handler (/usr/lib/node_modules/lerna/lib/commands/AddCommand.js:77:14)
+10 error     at Object.self.runCommand (/usr/lib/node_modules/lerna/node_modules/yargs/lib/command.js:233:22)
+10 error     at Object.Yargs.self._parseArgs (/usr/lib/node_modules/lerna/node_modules/yargs/yargs.js:990:30)
+10 error     at Object.Yargs.self.parse (/usr/lib/node_modules/lerna/node_modules/yargs/yargs.js:532:23)
