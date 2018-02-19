@@ -12,6 +12,7 @@ const appProperty = {
   DISCOUNT_DOCUMENT: 'DISCOUNT_DOCUMENT',
   OPEN_SESSION: 'OPEN_SESSION',
   CLOSE_SESSION: 'CLOSE_SESSION',
+  PAYBACK: 'PAYBACK'
 };
 
 const defaultDocumentProperty = {
@@ -58,7 +59,7 @@ const defaultDocumentProperty = {
   tax: 'NO_VAT',
   taxPercent: 0,
   taxRateCode: '',
-  number: 0,
+  number: 0
 };
 
 const clickhouseOptions = {
@@ -66,19 +67,19 @@ const clickhouseOptions = {
   port: process.env.CLICKHOUSE_PORT,
   auth: process.env.AUTH,
   queryOptions: {
-    database: process.env.CLICKHOUSE_DB,
+    database: process.env.CLICKHOUSE_DB
   },
-  dataObjects: true,
+  dataObjects: true
 };
 
 const jsonSqlProp = {
   separatedValues: false,
-  wrappedIdentifiers: false,
+  wrappedIdentifiers: false
 };
 
 module.exports = {
   ...appProperty,
   defaultDocumentProperty,
   clickhouseOptions,
-  jsonSqlProp,
+  jsonSqlProp
 };

@@ -28,6 +28,7 @@ const settings = require('./routes/settings');
 const report = require('./routes/report');
 const graph = require('./routes/graph');
 const receipt = require('./routes/receipt');
+const session = require('./routes/session');
 
 // constants
 const prop = require('./constants');
@@ -40,31 +41,38 @@ const createDocumentsTable = require('./sqlQuery/createDocumentsTable');
 
 const goodOptions = {
   includes: {
-    request: ['headers'],
+    request: ['headers', 'payload'],
+    response: ['payload']
   },
   reporters: {
-    logstash: [{
-      module: 'good-squeeze',
-      name: 'Squeeze',
-      args: [{ response: '*', request: '*' }],
-    }, {
-      module: 'good-hapi-graylog2',
-      args: [{
-        host: process.env.GRAYLOG_HOST,
-        port: process.env.GRAYLOG_PORT,
-        facility: `analytics-${process.env.GRAYLOG_TYPE}`,
-        hostname: 'analytics.server',
-      }],
-    }],
-  },
+    logstash: [
+      {
+        module: 'good-squeeze',
+        name: 'Squeeze',
+        args: [{ response: '*', request: '*' }]
+      },
+      {
+        module: 'good-hapi-graylog2',
+        args: [
+          {
+            host: process.env.GRAYLOG_HOST,
+            port: process.env.GRAYLOG_PORT,
+            facility: `analytics-${process.env.GRAYLOG_TYPE}`,
+            hostname: 'analytics.server',
+            adapter: 'tcp'
+          }
+        ]
+      }
+    ]
+  }
 };
 
 const options = {
   info: {
     title: 'API Сервера аналитики',
-    version: Pack.version,
+    version: Pack.version
   },
-  grouping: 'tags',
+  grouping: 'tags'
 };
 
 module.exports = async function returnServer(config) {
@@ -86,48 +94,53 @@ module.exports = async function returnServer(config) {
 
     server.decorate('request', 'db', model);
 
-    server.register([
-      AuthBearer,
-      AuthJwt,
-      Inert,
-      Vision,
-      {
-        register: HapiSwagger,
-        options,
-      }, {
-        register: good,
-        options: goodOptions,
-      }], async () => {
-      server.auth.strategy('application', 'bearer-access-token', {
-        validateFunc: application,
-      });
-      server.auth.strategy('personal', 'bearer-access-token', {
-        validateFunc: personal,
-      });
-      server.auth.strategy('user', 'jwt', {
-        key: process.env.JWT_SECRET,
-        verifyOptions: { algorithms: ['HS256'] },
-        validateFunc: user,
-      });
+    server.register(
+      [
+        AuthBearer,
+        AuthJwt,
+        Inert,
+        Vision,
+        {
+          register: HapiSwagger,
+          options
+        },
+        {
+          register: good,
+          options: goodOptions
+        }
+      ],
+      async () => {
+        server.auth.strategy('application', 'bearer-access-token', {
+          validateFunc: application
+        });
+        server.auth.strategy('personal', 'bearer-access-token', {
+          validateFunc: personal
+        });
+        server.auth.strategy('user', 'jwt', {
+          key: process.env.JWT_SECRET,
+          verifyOptions: { algorithms: ['HS256'] },
+          validateFunc: user
+        });
 
-      server.views({
-        engines: { html: handlebars },
-        path: path.resolve(__dirname, '../public'),
-      });
+        server.views({
+          engines: { html: handlebars },
+          path: path.resolve(__dirname, '../public')
+        });
 
+        server.route(evotorUserDataRoutes);
+        server.route(evotorDocumentRouter);
+        server.route(settings);
+        server.route(report);
+        server.route(graph);
+        server.route(receipt);
+        server.route(session);
 
-      server.route(evotorUserDataRoutes);
-      server.route(evotorDocumentRouter);
-      server.route(settings);
-      server.route(report);
-      server.route(graph);
-      server.route(receipt);
+        const start = await server.start();
+        if (start instanceof Error) throw new Error('Ошибка запуска сервера');
 
-      const start = await server.start();
-      if (start instanceof Error) throw new Error('Ошибка запуска сервера');
-
-      pino.info('Server running at:', server.info.uri);
-    });
+        pino.info('Server running at:', server.info.uri);
+      }
+    );
   } catch (error) {
     pino.error(error.message, error);
   }
@@ -137,4 +150,3 @@ module.exports = async function returnServer(config) {
   //   options: goodOptions,
   // }
 };
-

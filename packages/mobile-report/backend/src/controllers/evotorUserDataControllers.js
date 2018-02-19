@@ -26,9 +26,7 @@ module.exports = {
       reply(Boom.badImplementation());
       return false;
     }
-    const newUser = await user.update(
-      { $set: { active } }
-    );
+    const newUser = await user.update({ $set: { active } });
     if (!newUser) {
       reply(Boom.badImplementation());
       return false;
@@ -50,6 +48,7 @@ module.exports = {
     const data = request.payload;
     const user = request.auth.credentials;
     const newUser = await user.update({ $set: { employees: data } });
+    logger.info('employess', data);
     if (!newUser) {
       reply(Boom.badImplementation('Ошибка базы данных'));
       return;
@@ -67,5 +66,5 @@ module.exports = {
       return;
     }
     reply();
-  },
+  }
 };

@@ -1,11 +1,13 @@
-const logger = require('pino')();
+// const logger = require('pino')();
 const sell = require('./sell');
 const session = require('./session');
 const prop = require('../constants');
 const moment = require('moment');
 
 function getInterval(interval) {
-  const valid = /((0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d)\-((0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d)/.test(interval);
+  const valid = /((0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d)\-((0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[012])\.(19|20)\d\d)/.test(
+    interval
+  );
   if (valid) {
     const start = `${interval.slice(0, interval.indexOf('-'))} 00:00:01`;
     const end = `${interval.slice(interval.indexOf('-') + 1, interval.length)} 23:59:59`;
@@ -16,7 +18,7 @@ function getInterval(interval) {
       gtCloseDate,
       prevLtCloseDate: null,
       prevGtCloseDate: null,
-      step: 'free',
+      step: 'free'
     };
   }
   return {
@@ -24,7 +26,7 @@ function getInterval(interval) {
     gtCloseDate: moment().format('X'),
     prevLtCloseDate: null,
     prevGtCloseDate: null,
-    step: 'hours',
+    step: 'hours'
   };
 }
 
@@ -32,10 +34,11 @@ module.exports = {
   documents(userUuid, documents, storeUuid) {
     const result = [];
     try {
-      documents.forEach((document) => {
+      documents.forEach(document => {
         switch (document.type) {
+          case prop.PAYBACK:
           case prop.SELL:
-            sell(userUuid, document, storeUuid).forEach((doc) => {
+            sell(userUuid, document, storeUuid).forEach(doc => {
               result.push(doc);
             });
             return false;
@@ -52,7 +55,8 @@ module.exports = {
       return error;
     }
   },
-  getDate(interval) { // Перенести в отдельный файл
+  getDate(interval) {
+    // Перенести в отдельный файл
     switch (interval) {
       case 'today':
         return {
@@ -60,44 +64,63 @@ module.exports = {
           gtCloseDate: moment().format('X'),
           prevLtCloseDate: null,
           prevGtCloseDate: null,
-          step: 'hours',
+          step: 'hours'
         };
       case 'yesterday':
         return {
           ltCloseDate: moment().format('X'),
-          gtCloseDate: moment().add(-1, 'd').format('X'),
-          prevLtCloseDate: moment().add(-1, 'd').format('X'),
-          prevGtCloseDate: moment().add(-2, 'd').format('X'),
-          step: 'hours',
+          gtCloseDate: moment()
+            .add(-1, 'd')
+            .format('X'),
+          prevLtCloseDate: moment()
+            .add(-1, 'd')
+            .format('X'),
+          prevGtCloseDate: moment()
+            .add(-2, 'd')
+            .format('X'),
+          step: 'hours'
         };
       case 'week':
         return {
           ltCloseDate: moment().format('X'),
-          gtCloseDate: moment().add(-7, 'd').format('X'),
-          prevLtCloseDate: moment().add(-7, 'd').format('X'),
-          prevGtCloseDate: moment().add(-14, 'd').format('X'),
-          step: 'days',
+          gtCloseDate: moment()
+            .add(-7, 'd')
+            .format('X'),
+          prevLtCloseDate: moment()
+            .add(-7, 'd')
+            .format('X'),
+          prevGtCloseDate: moment()
+            .add(-14, 'd')
+            .format('X'),
+          step: 'days'
         };
       case 'month':
         return {
           ltCloseDate: moment().format('X'),
-          gtCloseDate: moment().add(-30, 'd').format('X'),
-          prevLtCloseDate: moment().add(-30, 'd').format('X'),
-          prevGtCloseDate: moment().add(-60, 'd').format('X'),
-          step: 'days',
+          gtCloseDate: moment()
+            .add(-30, 'd')
+            .format('X'),
+          prevLtCloseDate: moment()
+            .add(-30, 'd')
+            .format('X'),
+          prevGtCloseDate: moment()
+            .add(-60, 'd')
+            .format('X'),
+          step: 'days'
         };
       default:
         return getInterval(interval);
     }
   },
-  getShopsTotalInfo(shops, shopsArr) { // Перенести в отдельный файл
+  getShopsTotalInfo(shops, shopsArr) {
+    // Перенести в отдельный файл
     const allShopsData = {
       total: 0,
-      receiptsCount: 0,
+      receiptsCount: 0
     };
     const shopsTotal = [];
     let average = 0;
-    shops.forEach((shop) => {
+    shops.forEach(shop => {
       allShopsData.total += shop.total;
       allShopsData.receiptsCount += global.parseInt(shop.receiptsCount);
       average += shop.average;
@@ -108,14 +131,14 @@ module.exports = {
         address: store.address,
         total: shop.total,
         average: shop.average,
-        receiptsCount: global.parseInt(shop.receiptsCount),
+        receiptsCount: global.parseInt(shop.receiptsCount)
       });
     });
     allShopsData.average = global.parseInt((average / shopsArr.length).toFixed(2));
     return { shops: shopsTotal, allShopsData };
   },
-  percent(num1, num2) { // Перенести в отдельный файл
-    return global.parseInt(((((num1 / num2) * 100)) - 100));
-  },
+  percent(num1, num2) {
+    // Перенести в отдельный файл
+    return global.parseInt(num1 / num2 * 100 - 100);
+  }
 };
-

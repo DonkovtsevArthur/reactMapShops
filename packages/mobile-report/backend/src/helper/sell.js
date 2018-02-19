@@ -2,11 +2,16 @@ const moment = require('moment');
 // const pino = require('pino')();
 const prop = require('../constants');
 
+const getCloseResultSum = ({ closeResultSum, type }) =>
+  type === 'SELL' ? closeResultSum : -closeResultSum;
+const getCloseSum = ({ closeSum, type }) => (type === 'SELL' ? closeSum : -closeSum);
+
 function parseTransactions(transactions, mainProperty, positions) {
   let property = { ...mainProperty };
 
   const transaction = transactions.shift();
-  if (transaction.type !== prop.REGISTER_POSITION) throw new Error('Неверный начальный тип транзакции');
+  if (transaction.type !== prop.REGISTER_POSITION)
+    throw new Error('Неверный начальный тип транзакции');
 
   property = {
     ...property,
@@ -23,7 +28,7 @@ function parseTransactions(transactions, mainProperty, positions) {
     measureName: transaction.measureName || 'шт',
     tareVolume: transactions.tareVolume || 0,
     price: transaction.price || 0,
-    quantity: transaction.quantity || 0,
+    quantity: transaction.quantity || 0
   };
 
   const discount = transactions.shift();
@@ -36,7 +41,7 @@ function parseTransactions(transactions, mainProperty, positions) {
       ...property,
       discountPositionPercent: discount.discountPositionPercent || 0,
       discountDocumentSum: discount.discountDocumentSum || 0,
-      discountPositionSum: discount.discountPositionSum || 0,
+      discountPositionSum: discount.discountPositionSum || 0
     };
     tax = transactions.shift();
   }
@@ -50,7 +55,7 @@ function parseTransactions(transactions, mainProperty, positions) {
     tax: tax.tax || 0,
     taxPercent: tax.taxPercent || 0,
     taxRateCode: tax.taxRateCode || '',
-    taxSum: tax.taxSum || 0,
+    taxSum: tax.taxSum || 0
   };
 
   positions.push(property);
@@ -63,7 +68,7 @@ function parseTransactions(transactions, mainProperty, positions) {
 
 function parseSell(userUuid, document, storeUuid) {
   let mainProperty = {
-    ...prop.defaultDocumentProperty,
+    ...prop.defaultDocumentProperty
   };
   mainProperty = {
     ...mainProperty,
@@ -74,12 +79,13 @@ function parseSell(userUuid, document, storeUuid) {
     deviceUuid: document.deviceUuid,
     deviceId: document.deviceId || '',
     documentType: document.type,
+    sessionNumber: document.sessionNumber || '',
     closeDate: moment(document.closeDate).format('YYYY-MM-DD HH:mm:ss'),
     openDate: moment(document.openDate).format('YYYY-MM-DD HH:mm:ss'),
     sessionUuid: document.sessionUUID || '',
-    closeResultSum: parseFloat(document.closeResultSum) || 0,
-    closeSum: parseFloat(document.closeSum) || 0,
-    number: document.number || 0,
+    closeResultSum: parseFloat(getCloseResultSum(document)) || 0,
+    closeSum: parseFloat(getCloseSum(document)) || 0,
+    number: document.number || 0
   };
 
   const transactions = document.transactions;
@@ -90,7 +96,7 @@ function parseSell(userUuid, document, storeUuid) {
   mainProperty = {
     ...mainProperty,
     employeeUuid: open.userUuid,
-    timeZone: open.timezone / 1000 || 0,
+    timeZone: open.timezone / 1000 || 0
   };
 
   const close = transactions.pop();
@@ -98,10 +104,10 @@ function parseSell(userUuid, document, storeUuid) {
 
   mainProperty = {
     ...mainProperty,
-    totalQuantity: close.quantity || 0,
+    totalQuantity: close.quantity || 0
   };
 
-  const clearTransactions = transactions.filter((transaction) => {
+  const clearTransactions = transactions.filter(transaction => {
     switch (transaction.type) {
       case prop.PAYMENT:
         if (transaction.sum > 0) {
@@ -110,7 +116,9 @@ function parseSell(userUuid, document, storeUuid) {
           mainProperty.paymentSum += transaction.sum;
           return false;
         }
-        mainProperty.oddMoney -= transaction.sum;
+        mainProperty.oddMoney += transaction.sum;
+        mainProperty.rrn = transaction.rrn || '';
+        mainProperty.paymentType = transaction.paymentType || 'CASH';
         return false;
       case prop.DISCOUNT_POSITION:
       case prop.DISCOUNT_DOCUMENT:

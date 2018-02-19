@@ -19,6 +19,7 @@ module.exports = `
     timeZone Int32,
     paymentType String,
     sessionUuid String,
+    sessionNumber String,
     rrn String,
     totalDiscountPercent Int32,
     totalDiscountSum Float32,
