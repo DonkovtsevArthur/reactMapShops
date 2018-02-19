@@ -18,6 +18,18 @@ module.exports = {
       const sessions = [];
       const { ltCloseDate, gtCloseDate, steps } = parse.getDate(interval);
 
+      pino.info(
+        'query ----->',
+        getSession(
+          user.uuid,
+          ltCloseDate,
+          gtCloseDate,
+          storeUuid,
+          steps,
+          moment(user.storeOpen, 'hmm').format('HH') * 60 * 60
+        )
+      );
+
       const stream = ch.query(
         getSession(
           user.uuid,

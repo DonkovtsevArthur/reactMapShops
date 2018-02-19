@@ -14,8 +14,8 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   SELECT DISTINCT
     sessionNumber,
     sum(closeResultSum) as sum,
-    minIf(openDate, documentType='OPEN_SESSION') as openDate,
-    max(closeDate, documentType='CLOSE_SESSION') as closeDate,
+    minIf(openDate, documentType ='OPEN_SESSION') as openDate,
+    maxIf(closeDate, documentType ='CLOSE_SESSION') as closeDate,
     count(documentUuid) as receipts,
     any(userUuid) as user,
     countIf(documentUuid, documentType = 'PAYBACK') as paybacks,
@@ -29,7 +29,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
     plus(closeDate, timeZone) <= ${max} AND 
     plus(closeDate, timeZone) >= ${min} AND 
     userUuid = '${uuid}' AND 
-    storeUuid = '${storeUuid}' AND
+    storeUuid = '${storeUuid}'
   GROUP BY
     sessionNumber, paymentType
   `;
