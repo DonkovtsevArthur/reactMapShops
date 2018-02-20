@@ -12,11 +12,11 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   }
   return `
   SELECT DISTINCT
-    sessionNumber,
-    floor(sum(closeResultSum), 2) as sum,
-    minIf(openDate, documentType ='OPEN_SESSION') as openDate,
-    maxIf(closeDate, documentType ='CLOSE_SESSION') as closeDate,
-    count(documentUuid) as receipts,
+    toUInt32OrZero(sessionNumber) as sessionNumber,
+    floor(sumIf(closeResultSum, documentType ='SELL'), 2) as sum,
+    plus(minIf(openDate, documentType ='OPEN_SESSION'), any(timeZone)) as openDate,
+    plus(maxIf(closeDate, documentType ='CLOSE_SESSION'), any(timeZone)) as closeDate,
+    countIf(documentUuid, documentType ='SELL') as receipts,
     any(userUuid) as user,
     countIf(documentUuid, documentType = 'PAYBACK') as paybacks,
     floor(sumIf(closeResultSum, documentType = 'PAYBACK'), 2) as paybacksSum,
@@ -34,5 +34,6 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   )
   GROUP BY
     sessionNumber
+  ORDER BY sessionNumber DESC
   `;
 };

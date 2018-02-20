@@ -8,7 +8,7 @@ function parseTransactions(transaction, doc) {
   property = {
     ...property,
     employeeUuid: transaction.userUuid || '',
-    timeZone: transaction.timezone / 1000 || 0,
+    timeZone: transaction.timezone / 1000 || 0
   };
 
   return property;
@@ -16,7 +16,7 @@ function parseTransactions(transaction, doc) {
 
 function parseSession(userUuid, document, storeUuid) {
   let doc = {
-    ...prop.defaultDocumentProperty,
+    ...prop.defaultDocumentProperty
   };
   doc = {
     ...doc,
@@ -32,6 +32,7 @@ function parseSession(userUuid, document, storeUuid) {
     sessionUuid: document.sessionUUID || '',
     closeResultSum: parseFloat(document.closeResultSum) || 0,
     closeSum: parseFloat(document.closeSum) || 0,
+    sessionNumber: document.sessionNumber || ''
   };
 
   const transaction = document.transactions[0];
