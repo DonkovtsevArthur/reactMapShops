@@ -26,7 +26,7 @@
     "circular-json": "^0.3.3",
     "good": "^7.3.0",
     "good-squeeze": "^5.0.2",
-    "good-hapi-graylog2": "^1.0.4",
+    "good-hapi-graylog2": "^1.1.0",
     "graylog2": "^0.1.3",
     "hapi": "^16.6.0",
     "hapi-auth-bearer-token": "^5.1.0",

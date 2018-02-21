@@ -33,25 +33,30 @@ const access_1 = require("./routes/access");
 const logger = Logger();
 const goodOptions = {
     includes: {
-        request: ['headers'],
-        response: ['payload'],
+        request: ['headers', 'payload'],
+        response: ['payload']
     },
     reporters: {
-        logstash: [{
+        logstash: [
+            {
                 module: 'good-squeeze',
                 name: 'Squeeze',
-                args: [{ response: '*', request: '*' }],
-            }, {
+                args: [{ response: '*', request: '*' }]
+            },
+            {
                 module: 'good-hapi-graylog2',
-                args: [{
+                args: [
+                    {
                         host: process.env.GRAYLOG_HOST,
                         port: process.env.GRAYLOG_PORT,
-                        facility: `monitor-api-${process.env.GRAYLOG_TYPE}`,
+                        facility: `monoruk-api-server-${process.env.GRAYLOG_TYPE}`,
                         hostname: 'monitor',
-                        bufferSize: 15625,
-                    }],
-            }],
-    },
+                        adapter: 'tcp'
+                    }
+                ]
+            }
+        ]
+    }
 };
 class Server {
     constructor(port) {
@@ -59,9 +64,9 @@ class Server {
         this.options = {
             info: {
                 title: 'API Сервера конфигураций',
-                version: '0.0.1',
+                version: '0.0.1'
             },
-            grouping: 'tags',
+            grouping: 'tags'
         };
     }
     start() {
@@ -76,20 +81,20 @@ class Server {
                 Susie,
                 {
                     options: this.options,
-                    register: HapiSwagger,
+                    register: HapiSwagger
                 },
                 {
                     register: Good,
-                    options: goodOptions,
-                },
+                    options: goodOptions
+                }
             ], async () => {
                 server.auth.strategy('application', 'bearer-access-token', {
-                    validateFunc: application_1.default,
+                    validateFunc: application_1.default
                 });
                 server.auth.strategy('developUser', 'jwt', {
                     key: process.env.JWT_SECRET,
                     verifyOptions: { algorithms: ['HS256'] },
-                    validateFunc: developUser_1.default,
+                    validateFunc: developUser_1.default
                 });
                 server.auth.strategy('lkUserRead', 'bearer-access-token', {
                     validateFunc: async (token, callback) => {
@@ -102,7 +107,7 @@ class Server {
                         else {
                             callback(null, false);
                         }
-                    },
+                    }
                 });
                 server.auth.strategy('lkUserWrite', 'bearer-access-token', {
                     validateFunc: async (token, callback) => {
@@ -115,20 +120,20 @@ class Server {
                         else {
                             callback(null, false);
                         }
-                    },
+                    }
                 });
                 const nats = nats_1.connect(process.env.NATS || 'nats://172.17.0.2:4222');
                 const hemera = new Hemera(nats, {
                     logLevel: 'debug',
                     childLogger: true,
-                    tag: 'api-service',
+                    tag: 'api-service'
                 });
                 hemera.use(HemeraZipkin, {
                     host: process.env.ZIPKIN_HOST,
                     sampling: 1,
                     subscriptionBased: false,
                     path: '/api/v1/spans',
-                    debug: false,
+                    debug: false
                 });
                 server.decorate('request', 'hemera', () => hemera);
                 server.route(app_1.default);
