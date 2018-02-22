@@ -21,13 +21,14 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset, sess
     price,
     quantity,
     number,
-    multiply(price, quantity) as cost
+    multiply(price, quantity) as cost,
+    paymentType
   FROM documents
   WHERE 
   plus(closeDate, timeZone) <= ${max} AND 
   plus(closeDate, timeZone) >= ${min} AND 
   userUuid = '${uuid}' AND 
   storeUuid = '${storeUuid}' AND
-  documentType = 'SELL' ${getSession(session)}
+  (documentType = 'SELL' OR documentType = 'PAYBACK') ${getSession(session)}
   `;
 };

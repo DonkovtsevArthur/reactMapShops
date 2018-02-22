@@ -14,6 +14,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
   SELECT DISTINCT
     toUInt32OrZero(sessionNumber) as sessionNumber,
     floor(sumIf(closeResultSum, documentType ='SELL'), 2) as sum,
+    floor(sumIf(closeResultSum, or(documentType ='SELL', documentType ='PAYBACK') ), 2) as total,
     plus(minIf(openDate, documentType ='OPEN_SESSION'), any(timeZone)) as openDate,
     plus(maxIf(closeDate, documentType ='CLOSE_SESSION'), any(timeZone)) as closeDate,
     countIf(documentUuid, documentType ='SELL') as receipts,
@@ -25,7 +26,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset) => {
     floor(sumIf(closeResultSum, and(paymentType = 'CASH', documentType = 'SELL')), 2) as sumCashSell,
     floor(sumIf(closeResultSum, and(paymentType = 'CARD', documentType = 'SELL')), 2) as sumCardSell
   FROM (
-    SELECT * FROM documents
+    SELECT DISTINCT * FROM documents
     WHERE 
       plus(closeDate, timeZone) <= ${max} AND 
       plus(closeDate, timeZone) >= ${min} AND 

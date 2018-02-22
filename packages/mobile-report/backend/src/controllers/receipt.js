@@ -29,11 +29,7 @@ module.exports = {
       const session = request.query.session;
 
       const receipt = [];
-      const {
-        ltCloseDate,
-        gtCloseDate,
-        steps,
-      } = parse.getDate(interval);
+      const { ltCloseDate, gtCloseDate, steps } = parse.getDate(interval);
 
       const stream = ch.query(
         getReceipt(
@@ -46,29 +42,30 @@ module.exports = {
           session
         )
       );
-      stream.on('error', (error) => {
+      stream.on('error', error => {
         pino.error(error);
         reply(Boom.badImplementation(error.message));
       });
 
-      stream.on('data', (row) => {
+      stream.on('data', row => {
         receipt.push(row);
       });
 
       stream.on('end', () => {
         const grouped = groupObjectInArray(receipt, 'documentUuid');
-        const final = grouped.map((item) => {
+        const final = grouped.map(item => {
           const newRow = {
             documentUuid: item[0].documentUuid,
             date: item[0].date,
             closeResultSum: item[0].closeResultSum,
             number: item[0].number,
+            paymentType: item[0].paymentType
           };
           newRow.items = item.map(pos => ({
             productName: pos.productName,
             price: pos.price,
             quantity: pos.quantity,
-            cost: pos.cost,
+            cost: pos.cost
           }));
           return newRow;
         });
@@ -87,5 +84,5 @@ module.exports = {
     } catch (error) {
       reply(Boom.badImplementation(error.message));
     }
-  },
+  }
 };
