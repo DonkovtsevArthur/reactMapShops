@@ -69,16 +69,6 @@ module.exports = {
           }));
           return newRow;
         });
-        final.sort((a, b) => {
-          switch (moment(a.date) > moment(b.date)) {
-            case true:
-              return 1;
-            case false:
-              return -1;
-            default:
-              return 0;
-          }
-        });
         reply(final);
       });
     } catch (error) {

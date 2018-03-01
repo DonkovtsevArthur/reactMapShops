@@ -30,5 +30,6 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset, sess
   userUuid = '${uuid}' AND 
   storeUuid = '${storeUuid}' AND
   (documentType = 'SELL' OR documentType = 'PAYBACK') ${getSession(session)}
+  ORDER BY number DESC
   `;
 };
