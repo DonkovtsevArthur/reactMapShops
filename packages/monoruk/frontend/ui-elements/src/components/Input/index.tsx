@@ -15,7 +15,7 @@ export interface InputProps {
   value?: string;
   type?: string;
   settings?: string;
-  onChange?: (event: object) => string;
+  onChange?: (event: object) => any;
 }
 
 class Input extends React.Component<InputProps> {
@@ -82,21 +82,25 @@ class Input extends React.Component<InputProps> {
       }
     }
     this.setState({ value });
-    // if (typeof onChange === "function") onChange(event);
   };
 
   handleFocusOut = event => {
     const { value } = this.state;
-    const { pattern } = this.props;
+    const { pattern, onChange } = this.props;
 
     if (value === "") {
       this.setState({ className: "empty" });
+      if (typeof onChange === "function") onChange({ value: "" });
       return;
     }
 
     if (pattern) {
-      if (value.match(pattern)) this.setState({ className: "valid" });
-      else this.setState({ className: "invalid" });
+      if (value.match(pattern)) {
+        this.setState({ className: "valid" });
+        if (typeof onChange === "function") onChange({ value });
+      } else {
+        this.setState({ className: "invalid" });
+      }
       return;
     }
 
