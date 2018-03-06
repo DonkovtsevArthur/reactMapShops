@@ -1,4 +1,9 @@
-// body,
-// html {
-//   // background-color: green;
-// }
+.demo-container-inputs {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  input:nth-child(n + 4) {
+    margin-top: 20px;
+  }
+}
