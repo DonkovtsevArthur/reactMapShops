@@ -82,29 +82,33 @@ module.exports = {
         };
       case 'week':
         return {
-          ltCloseDate: moment().format('X'),
+          ltCloseDate: moment()
+            .add(1, 'd')
+            .format('X'),
           gtCloseDate: moment()
-            .add(-7, 'd')
+            .add(-6, 'd')
             .format('X'),
           prevLtCloseDate: moment()
-            .add(-7, 'd')
+            .add(-6, 'd')
             .format('X'),
           prevGtCloseDate: moment()
-            .add(-14, 'd')
+            .add(-13, 'd')
             .format('X'),
           step: 'days'
         };
       case 'month':
         return {
-          ltCloseDate: moment().format('X'),
+          ltCloseDate: moment()
+            .add(1, 'd')
+            .format('X'),
           gtCloseDate: moment()
-            .add(-30, 'd')
+            .add(-29, 'd')
             .format('X'),
           prevLtCloseDate: moment()
-            .add(-30, 'd')
+            .add(-29, 'd')
             .format('X'),
           prevGtCloseDate: moment()
-            .add(-60, 'd')
+            .add(-59, 'd')
             .format('X'),
           step: 'days'
         };
