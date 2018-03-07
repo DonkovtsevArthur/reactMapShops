@@ -7,7 +7,8 @@
     "test": "jest",
     "start": "yarn storybook",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook -c .storybook -o public && cp .htpasswd ./public",
+    "buildContainer": "docker build -t kuchinsn/ui-elements . && docker push kuchinsn/ui-elements"
   },
   "author": "Kuchinsn Sergey",
   "license": "ISC",
