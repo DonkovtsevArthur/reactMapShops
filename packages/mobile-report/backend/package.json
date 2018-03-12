@@ -46,7 +46,7 @@
   },
   "scripts": {
     "buildDocker":
-      "sudo docker build -t kuchinsn/analytics:dev . && sudo docker push kuchinsn/analytics:dev"
+      "sudo docker build -t kuchinsn/analytics . && sudo docker push kuchinsn/analytics"
   },
   "keywords": ["l"],
   "author": "",
