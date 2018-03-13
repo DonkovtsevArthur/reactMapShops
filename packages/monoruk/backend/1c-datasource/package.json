@@ -5,6 +5,10 @@
   "main": "server.js",
   "author": "Kuchin Sergey",
   "license": "MIT",
+  "scripts": {
+    "buildContainer":
+      "sudo docker build -t kuchinsn/monoruk-1c-datasource . && sudo docker push kuchinsn/monoruk-1c-datasource"
+  },
   "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/boom": "^7.2.0",

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/api-server",
+    "outDir": "./dist/1c-datasource",
     "sourceMap": false,
     "strictNullChecks": true,
     "module": "commonjs",
