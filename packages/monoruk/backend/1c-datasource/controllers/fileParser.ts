@@ -59,11 +59,11 @@ class FileParser {
         }
         const fields = row.trim().split(config.SEPARATE_FIELD);
         const result = {};
-        fields.forEach((item, i) => {
-          const type = this.types[this.header[i]];
+        this.header.forEach((field, i) => {
+          const type = this.types[field];
           switch (type) {
             case 'Float32':
-              result[this.header[i]] = fields[i] ? parseFloat(fields[i]) : 0;
+              result[field] = fields[i] ? parseFloat(fields[i]) : 0;
               break;
             case 'Int32':
               result[this.header[i]] = fields[i] ? parseInt(fields[i].replace(/ /g, '')) : 0;
@@ -73,6 +73,20 @@ class FileParser {
               break;
           }
         });
+        // fields.forEach((item, i) => {
+        //   const type = this.types[this.header[i]];
+        //   switch (type) {
+        //     case 'Float32':
+        //       result[this.header[i]] = fields[i] ? parseFloat(fields[i]) : 0;
+        //       break;
+        //     case 'Int32':
+        //       result[this.header[i]] = fields[i] ? parseInt(fields[i].replace(/ /g, '')) : 0;
+        //       break;
+        //     default:
+        //       result[this.header[i]] = fields[i];
+        //       break;
+        //   }
+        // });
         this._result.push(result);
       });
     } catch (error) {

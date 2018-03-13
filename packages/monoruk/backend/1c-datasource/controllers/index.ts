@@ -24,12 +24,10 @@ export async function test(request: Hapi.Request, h: Hapi.ResponseToolkit) {
         types[item.name] = item.type;
       });
     });
-    logger.info(types);
     const parser = new FileParser(types);
     const response = new Promise((resolve, reject) => {
       payload.on('end', async () => {
         try {
-          logger.info(parser.result);
           await req.post('/data', parser.result);
           return resolve(parser.status);
         } catch (error) {
