@@ -9,7 +9,6 @@ const logger = Pino();
 
 export async function test(request: Hapi.Request, h: Hapi.ResponseToolkit) {
   try {
-    logger.info('Start process');
     const payload = request.payload as NodeJS.ReadWriteStream;
     const headers = request.headers;
     const req = axios.create({

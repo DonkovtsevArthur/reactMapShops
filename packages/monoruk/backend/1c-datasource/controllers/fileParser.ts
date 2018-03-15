@@ -32,7 +32,7 @@ class FileParser {
   }
   public parse(data: string) {
     try {
-      const rows = data.trim().split(config.SEPARATE_ROW);
+      const rows = data.split(config.SEPARATE_ROW);
       if (this.count === 0) {
         this.header = rows[0].trim().split(config.SEPARATE_FIELD);
         rows.shift();
@@ -50,44 +50,32 @@ class FileParser {
   private parseRows(rows: string[]) {
     try {
       rows.forEach((row, i, data) => {
-        if (i === 0) {
-          row = this.buff + row;
-        }
-        if (i === data.length - 1) {
-          this.buff = row;
-          return;
-        }
-        const fields = row.trim().split(config.SEPARATE_FIELD);
-        const result = {};
-        this.header.forEach((field, i) => {
-          const type = this.types[field];
-          switch (type) {
-            case 'Float32':
-              result[field] = fields[i] ? parseFloat(fields[i]) : 0;
-              break;
-            case 'Int32':
-              result[this.header[i]] = fields[i] ? parseInt(fields[i].replace(/ /g, '')) : 0;
-              break;
-            default:
-              result[this.header[i]] = fields[i];
-              break;
+        if (row) {
+          if (i === 0) {
+            row = this.buff + row;
           }
-        });
-        // fields.forEach((item, i) => {
-        //   const type = this.types[this.header[i]];
-        //   switch (type) {
-        //     case 'Float32':
-        //       result[this.header[i]] = fields[i] ? parseFloat(fields[i]) : 0;
-        //       break;
-        //     case 'Int32':
-        //       result[this.header[i]] = fields[i] ? parseInt(fields[i].replace(/ /g, '')) : 0;
-        //       break;
-        //     default:
-        //       result[this.header[i]] = fields[i];
-        //       break;
-        //   }
-        // });
-        this._result.push(result);
+          if (i === data.length - 1) {
+            this.buff = row;
+            return;
+          }
+          const fields = row.trim().split(config.SEPARATE_FIELD);
+          const result = {};
+          this.header.forEach((field, i) => {
+            const type = this.types[field];
+            switch (type) {
+              case 'Float32':
+                result[field] = fields[i] ? parseFloat(fields[i]) : 0;
+                break;
+              case 'Int32':
+                result[this.header[i]] = fields[i] ? parseInt(fields[i].replace(/ /g, '')) : 0;
+                break;
+              default:
+                result[this.header[i]] = fields[i];
+                break;
+            }
+          });
+          this._result.push(result);
+        }
       });
     } catch (error) {
       this._status = Status.error;
