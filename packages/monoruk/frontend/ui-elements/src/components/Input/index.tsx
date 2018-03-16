@@ -1,11 +1,6 @@
-import * as React from "react";
-import {
-  patternPhone,
-  patternInn,
-  patternNumber,
-  patternLetter
-} from "./patterns";
-import "./input.scss";
+import * as React from 'react';
+import { patternPhone, patternInn, patternNumber, patternLetter, IParams } from './patterns';
+import './input.scss';
 
 export interface InputProps {
   placeholder?: string;
@@ -20,20 +15,19 @@ export interface InputProps {
 
 class Input extends React.Component<InputProps> {
   state = {
-    value: "",
-    className: ""
+    value: '',
+    className: ''
   };
 
   public render() {
     const { pattern, value: propValue, ...props } = this.props;
     const { value: stateValue } = this.state;
-    const className =
-      (props.className ? props.className + " " : "") + this.state.className;
+    const className = (props.className ? props.className + ' ' : '') + this.state.className;
 
     return (
       <input
         {...props}
-        value={typeof propValue !== "undefined" ? propValue : stateValue}
+        value={typeof propValue !== 'undefined' ? propValue : stateValue}
         className={`LAD-input ${className}`}
         onChange={this.handleChange}
         onBlur={this.handleFocusOut}
@@ -41,37 +35,37 @@ class Input extends React.Component<InputProps> {
     );
   }
 
-  handleChange = event => {
+  handleChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
     const { settings } = this.props;
     const { value: currentValue } = this.state;
     const currentLength = currentValue.length;
-    const { value } = event.target;
+    const { value } = event.currentTarget;
     const length = value.length;
     const lastSymbol = value.substring(value.length - 1);
-    const params = { value, length, currentLength, lastSymbol };
+    const params: IParams = { value, length, currentLength, lastSymbol };
     // const settings = JSON.parse(event.target.getAttribute("data-settings"));
 
     switch (settings) {
-      case "isPhone": {
+      case 'isPhone': {
         const data = patternPhone(params);
         if (!Object.is(data, null)) this.setState({ value: data });
         return;
       }
 
-      case "isInn": {
+      case 'isInn': {
         const data = patternInn(params);
         if (!Object.is(data, null)) this.setState({ value: data });
         return;
       }
 
-      case "isNumbers": {
+      case 'isNumbers': {
         const data = patternNumber(params);
         if (!Object.is(data, null)) this.setState({ value: data });
         return;
       }
 
-      case "isLetter": {
+      case 'isLetter': {
         const data = patternLetter(params);
         if (!Object.is(data, null)) this.setState({ value: data });
         return;
@@ -84,27 +78,27 @@ class Input extends React.Component<InputProps> {
     this.setState({ value });
   };
 
-  handleFocusOut = event => {
+  handleFocusOut = (event: React.FormEvent<HTMLInputElement>) => {
     const { value } = this.state;
     const { pattern, onChange } = this.props;
 
-    if (value === "") {
-      this.setState({ className: "empty" });
-      if (typeof onChange === "function") onChange({ value: "" });
+    if (value === '') {
+      this.setState({ className: 'empty' });
+      if (typeof onChange === 'function') onChange({ value: '' });
       return;
     }
 
     if (pattern) {
       if (value.match(pattern)) {
-        this.setState({ className: "valid" });
-        if (typeof onChange === "function") onChange({ value });
+        this.setState({ className: 'valid' });
+        if (typeof onChange === 'function') onChange({ value });
       } else {
-        this.setState({ className: "invalid" });
+        this.setState({ className: 'invalid' });
       }
       return;
     }
 
-    this.setState({ className: "valid" });
+    this.setState({ className: 'valid' });
   };
 }
 
