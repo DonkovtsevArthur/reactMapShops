@@ -1,0 +1,75 @@
+.tableControlPlace {
+  width: $width;
+  max-width: $max-width;
+  height: 70px;
+}
+.tableControl {
+  width: $width;
+  max-width: $max-width;
+  height: 70px;
+  background: white;
+  box-shadow: 0px -5px 20px 0px rgba(118, 129, 166, 0.15);
+  text-align: right;
+  line-height: 70px;
+}
+
+.tableControlAbsolute {
+  @extend .tableControl;
+  position: absolute;
+  bottom: 0;
+  margin-top: 70px;
+  display: flex;
+}
+
+.tableControlFixed {
+  @extend .tableControl;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+}
+
+.btn__addposition {
+  margin-right: 18px;
+  background-color: $green;
+}
+
+.btn__addgroup {
+  margin-right: 18px;
+  margin-left: 0;
+  background-color: $blue;
+}
+
+.tableControl__group {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.tableControl__group_left {
+  @extend .tableControl__group;
+  text-align: left;
+  justify-content: flex-start;
+}
+
+.tableControl__info {
+  padding: 0 0 0 $margins;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.img__delete {
+  margin-right: 16px;
+}
+
+.table__control {
+  display: flex;
+  
+}
+
+.controll__icon {
+  font-size: 18px;
+  color: white;
+  margin-right: 18px;
+}

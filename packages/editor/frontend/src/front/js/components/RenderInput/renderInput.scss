@@ -1,0 +1,11 @@
+.form__error_message {
+  font-size: 10px;
+  color: red;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+}
+
+.form__error_field {
+  border: 1px solid red;
+}

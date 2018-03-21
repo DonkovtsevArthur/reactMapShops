@@ -1,0 +1,53 @@
+.addBarcode__control {
+  display: flex;
+  position: relative;
+}
+
+.addBarcode__input {
+  border-radius: 3px 0 0 3px;
+}
+
+.addBarcode__btn {
+  border: none;
+  background: $green-light;
+  color: white;
+  border-radius: 0 3px 3px 0;
+  width: 50px;
+  &:hover {
+    cursor: pointer
+  }
+}
+
+.addBarcode__list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.addBarcode__item {
+  display: flex;
+  width: 48%;
+  padding: 10px 13px;
+  justify-content: space-between;
+  border-radius: 3px;
+  border: 1px solid #d5dce6;
+  background-color : $row-gray;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #767a7f;
+  margin: 13px 0;
+}
+
+.addBarcode__remove {
+  background: $row-gray;
+  border: none;
+  color: #c7d2e0;
+  padding: 0;
+  &:hover {
+    cursor: pointer;
+    color: darken(red, 0.5);
+  }
+}

@@ -1,0 +1,60 @@
+.settings__select_printer {
+  margin: 10px 0 3px 10px;
+}
+
+.printer__controll {
+  text-align: right;
+  line-height: 3;
+  margin-top: 0;
+}
+
+.printer__error {
+  color: red;
+  margin-left: 10px;
+  &:before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: red;
+  }
+  a {
+    color: red;
+  }
+}
+
+.printer__warning {
+  color: yellow;
+  &:before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: yellow;
+  }
+}
+
+.printer__success {
+  color: green;
+  &:before {
+    content: '';
+    display: inline-block;
+    margin-right: 5px;
+    height: 10px;
+    width: 10px;
+    border-radius: 5px;
+    background-color: green;
+  }
+}
+
+.print__button {
+  margin-left: 10px;
+  &:disabled {
+    background-color: transparent;
+    color: #ff7800;
+  }
+}

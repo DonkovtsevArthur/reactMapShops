@@ -1,0 +1,116 @@
+.form__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 0 15px;
+}
+
+.form__block {
+ display: flex;
+ flex-direction: column;
+ justify-content: flex-end;
+ flex-grow: 1;
+}
+
+.form__column {
+  display: flex;
+  width: 30%;
+  position: relative;
+  justify-content: space-between;
+}
+
+.form__block_name {
+  flex-grow: 10;
+}
+
+.form__column_name {
+  width: 65%;
+}
+
+.form__block_measure {
+  flex-grow: 1;
+}
+
+.form__column_allow {
+  align-items: flex-end;
+  margin: 0 10px 10px 40px;
+  width: 30%;
+
+}
+
+.switcher__block {
+  display: flex;
+  align-items: center;
+}
+
+.form__label_slider {
+  margin-left: 10px;
+  font-size: 14px;
+}
+
+.form__row_barcode {
+  justify-content: flex-start;
+  align-items: flex-start;
+  & > * {
+    margin-right: 5%;
+  }
+}
+
+
+
+
+.form__column_last {
+  display: inline-block;
+  width: 25%;
+  text-align: right;
+}
+
+.form__column_slider {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.form__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: $gray;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.form__control {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: $gray-light;
+}
+
+.form__control_right {
+  display: flex;
+}
+
+
+
+
+.form__control {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn__control {
+  background-color: $green-light;
+}
+
+.btn__cancel {
+  background-color: $red;
+}
+
+.form__info {
+  font-size: 11px;
+}
+
+.form__requaired {
+  color: red;
+}

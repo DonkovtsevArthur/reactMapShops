@@ -1,0 +1,35 @@
+{
+	"parser": "babel-eslint",
+	"extends": [
+		"standard",
+		"plugin:react/recommended",
+		"plugin:import/errors",
+		"plugin:import/warnings",
+		"plugin:jsx-a11y/recommended",
+		"react-app",
+		"prettier",
+		"prettier/flowtype",
+		"prettier/react",
+		"prettier/standard"
+	],
+	"plugins": ["react", "jsx-a11y", "prettier", "import", "standard"],
+	"parserOptions": {
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"env": {
+		"browser": true,
+		"es6": true
+	},
+	"rules": {
+		"prettier/prettier": ["error", { "singleQuote": true }],
+		"react/jsx-uses-react": "error",
+		"react/jsx-uses-vars": "error",
+		"jsx-a11y/label-has-for": [0],
+		"jsx-a11y/href-no-hash": 0,
+		"no-console": [0],
+		"array-callback-return": 0,
+		"one-var": 0
+	}
+}

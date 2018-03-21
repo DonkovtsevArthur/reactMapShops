@@ -4,7 +4,8 @@
     "packages/monoruk/frontend/*",
     "packages/monoruk/backend/*",
     "packages/1c-proxy/backend/*",
-    "packages/mobile-report/backend"
+    "packages/mobile-report/backend",
+    "packages/editor/frontend"
   ],
   "version": "independent",
   "npmClient": "yarn"

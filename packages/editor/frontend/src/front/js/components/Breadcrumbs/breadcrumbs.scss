@@ -1,0 +1,18 @@
+.bread {
+  margin: 0 0 5px $margins;
+}
+
+.bread__separator {
+  padding: 0 5px;
+  color: #4a4a4a;
+}
+
+.breadcrumbs__main {
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+}
+
+.separate {
+  margin: 0 4px 0 4px;
+}

@@ -1,0 +1,6 @@
+node_modules/
+tasks/
+test/
+.eslitrc
+.gitignore
+gulpfile.babel.js

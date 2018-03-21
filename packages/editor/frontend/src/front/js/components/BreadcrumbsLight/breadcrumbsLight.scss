@@ -1,0 +1,19 @@
+.breadcrumbsLight {
+  display: flex;
+  justify-content: flex-start;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  color: gray;
+  padding: 0 15px;
+}
+
+.breadcrumbsLight__item {
+  display: flex;
+  margin-right: 5px;
+}
+
+.breadcrumbsLight__separator {
+  margin-right: 5px;
+}

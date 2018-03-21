@@ -1,0 +1,24 @@
+.search__panel {
+  display: flex;
+  position: absolute;
+  padding: 5px 0;
+  flex-direction: column;
+  background-color: white;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  border: 1px solid #dedede;
+  box-sizing: border-box;
+}
+
+.search__item {
+  padding: 5px 10px;
+  font-size: 13px;
+  border: none;
+  background-color: white;
+  text-align: left;
+  &:hover {
+    cursor: pointer;
+    background-color: #dedede;
+  }
+}
