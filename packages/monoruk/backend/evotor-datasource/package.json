@@ -1,0 +1,43 @@
+{
+  "name": "monoruk-evotor-datasource",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-async-to-generator": "^6.22.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-register": "^6.22.0",
+    "bcrypt": "^1.0.3",
+    "bluebird": "^3.5.0",
+    "boom": "^5.1.0",
+    "global-request-logger": "^0.1.1",
+    "hapi": "^16.1.0",
+    "hapi-auth-bearer-token": "^5.1.0",
+    "hoek": "^4.1.0",
+    "joi": "^10.2.1",
+    "json-sql": "^0.3.10",
+    "lodash": "^4.17.4",
+    "moment": "^2.17.1",
+    "mongoose": "^4.12.0",
+    "pino": "^4.0.2",
+    "superagent": "^3.4.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "dotenv": "^4.0.0",
+    "eslint": "^3.18.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.2"
+  },
+  "scripts": {
+    "buildContainer":
+      "sudo docker build -t kuchinsn/evotor-datasource . && sudo docker push kuchinsn/evotor-datasource"
+  },
+  "keywords": ["l"],
+  "author": "",
+  "license": "ISC"
+}
