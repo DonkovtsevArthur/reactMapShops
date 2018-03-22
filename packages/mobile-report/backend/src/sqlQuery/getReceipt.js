@@ -10,6 +10,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset, sess
     max = `plus(toDateTime(toDate(plus(${ltCloseDate}, timeZone))), ${free ? 0 : offset})`;
     min = `plus(toDateTime(toDate(plus(${gtCloseDate}, timeZone))), ${free ? 0 : offset})`;
   }
+  const getStore = store => (store === 'all' ? '' : `storeUuid = '${store}' AND`);
   const getSession = sessionNumber =>
     sessionNumber ? `AND sessionNumber = '${sessionNumber}'` : '';
   return `
@@ -28,7 +29,7 @@ module.exports = (uuid, ltCloseDate, gtCloseDate, storeUuid, steps, offset, sess
   plus(closeDate, timeZone) <= ${max} AND 
   plus(closeDate, timeZone) >= ${min} AND 
   userUuid = '${uuid}' AND 
-  storeUuid = '${storeUuid}' AND
+  ${getStore(storeUuid)}
   (documentType = 'SELL' OR documentType = 'PAYBACK') ${getSession(session)}
   ORDER BY number DESC
   `;
