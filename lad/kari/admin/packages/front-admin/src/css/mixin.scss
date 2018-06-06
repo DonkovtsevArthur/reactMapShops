@@ -1,0 +1,17 @@
+/*
+@mixin border-radius($radius) {
+	border-radius: $radius;
+}*/
+
+@mixin truncated() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+@mixin back-img($src) {
+	background-image: url(../img/$src);
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: cover;
+}

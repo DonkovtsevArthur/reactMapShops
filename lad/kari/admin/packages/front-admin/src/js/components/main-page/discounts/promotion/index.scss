@@ -1,0 +1,79 @@
+@import '~css/base.scss';
+
+.form {
+}
+
+.form-select {
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.form-input {
+  max-width: 250px;
+
+  & + &,
+  & + .form-button {
+    margin-top: 10px;
+  }
+
+  &:not([class*=' valid']) ~ .form-button {
+    pointer-events: none;
+    filter: opacity(0.5);
+  }
+}
+
+.form-button {
+  display: flex;
+  width: 120px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  filter: opacity(1);
+}
+
+.form-header {
+  display: grid;
+  grid-template: 'title switch';
+  grid-column-gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  & > input:checked + .form-header-switch {
+    background-color: #5cd00a;
+    border-color: #5cd00a;
+
+    &::before {
+      transform: translateX(99%);
+    }
+  }
+}
+
+.form-header-title {
+  font-weight: 700;
+  font-size: 21px;
+  grid-area: title;
+}
+
+.form-header-switch {
+  display: block;
+  width: 60px;
+  height: 30px;
+  border: 1px solid lightgrey;
+  background-color: lightgrey;
+  border-radius: 60px;
+  grid-area: switch;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    border-radius: 50%;
+    width: 29px;
+    height: 29px;
+    background-color: white;
+    position: absolute;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+  }
+}

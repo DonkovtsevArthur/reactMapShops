@@ -1,0 +1,46 @@
+.auth-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.auth-form-input {
+  max-width: 250px;
+
+  & + & {
+    margin-top: 15px;
+  }
+}
+
+.auth-form-button {
+  display: flex;
+  align-items: center;
+  width: 130px;
+  height: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid #3ac162;
+  background-color: #3ac162;
+  transition: filter .4s;
+  padding-left: 15px;
+  padding-right: 14px;
+  cursor: pointer;
+  filter: opacity(1);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-form-input:not([class*=" valid"]) ~ .auth-form-button {
+  pointer-events: none;
+  filter: opacity(0.5);
+}
+
+.auth-form-input + .auth-form-button {
+  margin-top: 15px;
+}

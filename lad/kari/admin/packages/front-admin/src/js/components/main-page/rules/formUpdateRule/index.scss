@@ -1,0 +1,30 @@
+@import "~css/base.scss";
+
+.form-create-device {
+}
+
+.form-create-device-input {
+  max-width: 250px;
+
+  & + &,
+  & + .form-create-device-button {
+    margin-top: 10px;
+  }
+
+  &:not([class*=" valid"]) ~ .form-create-device-button {
+    pointer-events: none;
+    filter: opacity(0.5);
+  }
+}
+
+.form-create-device-button {
+  height: 50px;
+  margin-left: auto;
+  display: flex;
+  margin-right: auto;
+  width: 120px;
+  filter: opacity(1);
+}
+
+.form-create-device-close {
+}

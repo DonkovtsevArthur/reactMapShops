@@ -1,0 +1,23 @@
+.checkbox-input {
+  display: none;
+
+  &:checked + .checkbox-label {
+    border-color: #219653;
+    background-image: url('icon-checked.svg', param(--color #219653));
+  }
+}
+
+.checkbox-label {
+  display: inline-flex;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  min-width: 36px;
+  min-height: 36px;
+  width: 36px;
+  height: 36px;
+  border: 2px solid #dde0e9;
+  transition: 0.3s ease;
+}
+
+.checkbox-label-link {
+}

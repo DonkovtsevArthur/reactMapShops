@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "target": "es2015",
+    "module": "esnext", // для поддержки динамического импорта модулей
+    "jsx": "react",
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "traceResolution": true,
+    "allowJs": true,
+    "typeRoots": [
+      "../node_modules/@types"
+    ]
+  },
+  "include": [
+    "../src/js/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "../node_modules"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true
+  }
+}

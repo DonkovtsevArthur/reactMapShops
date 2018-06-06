@@ -1,0 +1,103 @@
+@import "~css/variables.scss";
+
+.popup-header {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  padding-left: 16px;
+}
+
+.popup-header-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: #363636;
+}
+
+.popup-header-field {
+  font-size: 13px;
+  font-weight: 300;
+  color: #363636;
+  margin-left: 5%;
+
+  & > span {
+    font-weight: 700;
+    margin-left: 3px;
+  }
+}
+
+.popup-table {
+  width: 100%;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 15px;
+
+  & > tbody {
+    display: block;
+  }
+}
+
+.tr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 4px;
+  padding-left: 16px;
+  padding-right: 18px;
+
+  &:not(:first-child) {
+    border: 1px solid #e2e3e1;
+    border-bottom: none;
+  }
+
+  &:last-child {
+    border-bottom: 1px solid #e2e3e1;
+  }
+}
+
+.th,
+.td {
+  display: block;
+}
+
+.th {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8c8585;
+}
+
+.td {
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.name-column {
+  text-align: left;
+  width: calc(100% - 350px);
+}
+
+.amount-column {
+  text-align: center;
+  width: 75px;
+}
+
+.measure-column {
+  text-align: center;
+  width: 90px;
+}
+
+.price-column {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 65px;
+
+  &.td::after {
+    content: url('~img/icon-ruble-black.svg');
+    display: block;
+    width: 11px;
+    padding-top: 1.4px;
+    margin-left: 2px;
+  }
+}

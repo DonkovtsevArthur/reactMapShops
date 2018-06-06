@@ -1,0 +1,12 @@
+{
+  "name": "infrastructure",
+  "version": "0.0.2",
+  "description": "",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "typescript": "^2.8.1"
+  }
+}

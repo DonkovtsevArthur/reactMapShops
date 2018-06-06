@@ -1,0 +1,29 @@
+.table {
+  width: 100%;
+}
+
+.thead {
+}
+
+.tbody {
+  .tr {
+    border: 1px solid lightgray;
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+  }
+}
+
+.tr {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) minmax(180px, 1fr) minmax(50px, 1fr) minmax(40px, 1fr) 50px minmax(40px, 1fr) minmax(50px, 1fr) 40px 30px;
+  grid-column-gap: 1%;
+  justify-content: space-between;
+  text-align: left;
+  padding: 5px;
+
+  & > td {
+    word-break: break-all;
+  }
+}

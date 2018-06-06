@@ -1,0 +1,59 @@
+@import '~css/base.scss';
+
+.form-create-user {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border: 1px solid gray;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.form-create-user-input {
+  max-width: 250px;
+
+  & + &,
+  & + .form-create-user-button {
+    margin-top: 10px;
+  }
+
+  &:not([class*=' valid']) ~ .form-create-user-button {
+    pointer-events: none;
+    filter: opacity(0.5);
+  }
+}
+
+.form-create-user-button {
+  display: flex;
+  width: 120px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  filter: opacity(1);
+}
+
+.form-create-user-close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  width: 30px;
+  height: 30px;
+  padding: 7px;
+  background-color: #ffc875;
+  background-image: url('icon-close.svg'param(--color #3ac162));
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: contain;
+  background-origin: content-box;
+  border-radius: 50%;
+  filter: opacity(0.6);
+  transition: filter 0.3s ease;
+
+  &:hover {
+    filter: opacity(1);
+  }
+}

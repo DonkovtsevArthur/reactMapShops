@@ -1,0 +1,48 @@
+@import "~css/base.scss";
+
+.devices-page {
+}
+
+.devices-nav {
+  margin-top: 20px;
+}
+
+.devices-nav-title {
+  font-weight: 500;
+  font-size: 18px;
+
+  & + .devices-nav-button {
+    margin-top: 10px;
+  }
+}
+
+.devices-nav-button {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.form-create-device-button {
+}
+
+.devices-table {
+}
+
+.number-column {
+  width: 40px;
+}
+
+.type-column {
+  width: 40px;
+}
+
+.name-column {
+  width: 200px;
+}
+
+.users-column {
+  width: 300px;
+}
+
+.tags-column {
+  width: 40px;
+}

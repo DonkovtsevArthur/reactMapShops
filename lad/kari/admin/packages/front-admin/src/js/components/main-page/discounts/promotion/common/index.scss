@@ -1,0 +1,58 @@
+.promotion-common {
+  display: grid;
+  grid-template: 'name priority' 'description description' 'dates dates' 'targets targets';
+  grid-row-gap: 15px;
+}
+
+.field-name {
+  grid-area: name;
+}
+
+.field-priority {
+  grid-area: priority;
+  width: 140px;
+  justify-self: flex-end;
+}
+
+.field-description {
+  grid-area: description;
+}
+
+.fields-date {
+  grid-area: dates;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  & > p {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  & > span {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .field-date-from,
+  .field-date-to {
+    width: 155px;
+    height: 38px;
+  }
+}
+
+.field-date-from {
+}
+
+.field-date-to {
+}
+
+.fields-targets {
+  grid-area: targets;
+  display: flex;
+  align-items: center;
+
+  & > label + label {
+    margin-left: 10px;
+  }
+}

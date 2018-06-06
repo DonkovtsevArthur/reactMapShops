@@ -1,0 +1,42 @@
+@font-face {
+	font-family: 'Museo Sans';
+	font-style: normal;
+	font-weight: 100;
+	src: url('../fonts/museo-sans-thin.woff2') format('woff2'), url('../fonts/museo-sans-thin.woff') format('woff');
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Museo Sans';
+	font-style: normal;
+	font-weight: 300;
+	src: url('../fonts/museo-sans-light.woff2') format('woff2'),
+	url('../fonts/museo-sans-light.woff') format('woff');
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Museo Sans';
+	font-style: normal;
+	font-weight: 500;
+	src: url('../fonts/museo-sans-regular.woff2') format('woff2'),
+	url('../fonts/museo-sans-regular.woff') format('woff');
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Museo Sans';
+	font-style: normal;
+	font-weight: 700;
+	src: url('../fonts/museo-sans-bold.woff2') format('woff2'), url('../fonts/museo-sans-bold.woff') format('woff');
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Museo Sans';
+	font-style: normal;
+	font-weight: 900;
+	src: url('../fonts/museo-sans-black.woff2') format('woff2'),
+	url('../fonts/museo-sans-black.woff') format('woff');
+	font-display: block;
+}

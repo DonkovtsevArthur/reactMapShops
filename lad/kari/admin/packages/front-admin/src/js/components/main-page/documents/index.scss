@@ -1,0 +1,24 @@
+@import '~css/base.scss';
+
+.documents-date-filters {
+  display: grid;
+  grid-template-columns: repeat(7, 80px);
+  margin-top: 20px;
+}
+
+.date-filter-button {
+  background: transparent;
+  border: none;
+  transition: color 0.3s;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 6px 13.3px;
+  justify-self: center;
+  min-width: 60px;
+
+  &.active {
+    font-weight: 600;
+    background-color: #ffc875;
+    border-radius: 50px;
+  }
+}

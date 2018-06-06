@@ -1,0 +1,40 @@
+@import "~css/variables.scss";
+@import "~css/base.scss";
+
+.rules-page {
+}
+
+.number-column {
+  width: 40px;
+}
+
+.name-column {
+  width: 200px;
+}
+
+.action-column {
+  width: 150px;
+  font-weight: 700;
+
+  & > span {
+    &.blue {
+      color: blue;
+    }
+
+    &.gold {
+      color: orange;
+    }
+
+    &.red {
+      color: red;
+    }
+
+    &.green {
+      color: darkgreen;
+    }
+  }
+}
+
+.target-column {
+  width: 150px;
+}

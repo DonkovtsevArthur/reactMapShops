@@ -1,0 +1,45 @@
+@import "~css/mixin.scss";
+@import "~css/base.scss";
+
+.users-page {
+  position: relative;
+}
+
+.users-button {
+}
+
+.users-table {
+}
+
+.number-column {
+  width: 40px;
+}
+
+.role-column {
+  width: 100px;
+}
+
+.name-column {
+  width: 150px;
+  @include truncated();
+}
+
+.email-column,
+.phone-column {
+  width: 100px;
+
+  & > a {
+    display: block;
+    color: black;
+    @include truncated();
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: green;
+    }
+  }
+}
+
+.updated-column {
+  width: 105px;
+}

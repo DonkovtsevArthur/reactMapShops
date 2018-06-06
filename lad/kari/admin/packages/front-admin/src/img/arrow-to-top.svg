@@ -1,0 +1,66 @@
+<svg width="11" height="7" viewBox="0 0 11 7" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>chevron</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-6116 -3851)">
+<rect x="6116" y="3851" width="11" height="7" fill="transparent"/>
+<clipPath id="clip-0" clip-rule="evenodd">
+<path d="M 654 613L 8071 613L 8071 6515L 654 6515L 654 613Z" fill="transparent"/>
+</clipPath>
+<g id="Frame" clip-path="url(#clip-0)">
+<path d="M 654 613L 8071 613L 8071 6515L 654 6515L 654 613Z" fill="transparent"/>
+
+<clipPath id="clip-1" clip-rule="evenodd">
+<path d="M 5179 3158L 6234 3158L 6234 4712L 5179 4712L 5179 3158Z" fill="transparent"/>
+</clipPath>
+<g id="&#208;&#158;&#208;&#191;&#208;&#181;&#209;&#128;&#208;&#176;&#209;&#134;&#208;&#184;&#208;&#184; &#209;&#129;&#208;&#190;&#209;&#129;&#209;&#130;&#208;&#190;&#209;&#143;&#208;&#189;&#208;&#184;&#209;&#143;" clip-path="url(#clip-1)">
+<path d="M 5179 3158L 6234 3158L 6234 4712L 5179 4712L 5179 3158Z" fill="transparent"/>
+<g id="Rectangle 5">
+<use xlink:href="#path1_fill" transform="translate(5179 3158)" fill="#F5F6F3"/>
+</g>
+<g id="&#208;&#161;&#209;&#130;&#209;&#128;&#208;&#190;&#208;&#186;&#208;&#176;">
+<g id="Rectangle 9">
+<use xlink:href="#path2_fill" transform="translate(5255 3833)" fill="transparent"/>
+<mask id="mask0_outline_ins">
+<use xlink:href="#path2_fill" fill="white" transform="translate(5255 3833)"/>
+</mask>
+<g mask="url(#mask0_outline_ins)">
+<use xlink:href="#path3_stroke_2x" transform="translate(5255 3833)" fill="#E2E3E1"/>
+</g>
+</g>
+</g>
+<g id="Rectangle 9">
+<mask id="mask1_outline_ins">
+<use xlink:href="#path4_fill" fill="white" transform="translate(5255 3833)"/>
+</mask>
+<g mask="url(#mask1_outline_ins)">
+<use xlink:href="#path5_stroke_2x" transform="translate(5255 3833)" fill="#3AC162"/>
+</g>
+</g>
+<g id="Rectangle 10" filter="url(#filter0_d)">
+<use xlink:href="#path6_fill" transform="translate(5256 3859)" fill="transparent"/>
+</g>
+<g id="chevron">
+<use xlink:href="#path7_fill" transform="matrix(5.96168e-17 1 1 -6.28916e-17 6117 3852)" style="fill:var(--color,black)"/>
+<use xlink:href="#path8_stroke" transform="matrix(5.96168e-17 1 1 -6.28916e-17 6117 3852)" fill="#E2E3E1"/>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<filter id="filter0_d" filterUnits="userSpaceOnUse" x="5236" y="3849" width="950" height="454" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 255 0"/>
+<feOffset dx="10" dy="20"/>
+<feGaussianBlur stdDeviation="15"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.34902 0 0 0 0 0.32549 0 0 0 0 0.301961 0 0 0 0.1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<path id="path3_stroke_2x" d="M 0 0L 0 -1L -1 -1L -1 0L 0 0ZM 892 0L 893 0L 893 -1L 892 -1L 892 0ZM 892 44L 892 45L 893 45L 893 44L 892 44ZM 0 44L -1 44L -1 45L 0 45L 0 44ZM 0 1L 892 1L 892 -1L 0 -1L 0 1ZM 891 0L 891 44L 893 44L 893 0L 891 0ZM 892 43L 0 43L 0 45L 892 45L 892 43ZM 1 44L 1 0L -1 0L -1 44L 1 44Z"/>
+
+
+
+<path id="path7_fill" fill-rule="evenodd" d="M 5.41541 8.22393C 5.67848 8.47025 5.68674 8.87761 5.43375 9.1339C 5.30403 9.26518 5.13069 9.3313 4.95718 9.3313C 4.79227 9.3313 4.62735 9.27177 4.49912 9.15175L 0.202755 5.12963C 0.0732035 5.00832 0 4.84068 0 4.66563C 0 4.49075 0.0732035 4.32311 0.202755 4.2018L 4.49912 0.179671C 4.76219 -0.0666438 5.18076 -0.0587604 5.43375 0.19753C 5.68674 0.45382 5.67848 0.861181 5.41541 1.1075L 1.61461 4.66563L 5.41541 8.22393Z"/>
+<path id="path8_stroke" d="M 5.41541 8.22393L 5.51793 8.11444L 5.51792 8.11443L 5.41541 8.22393ZM 5.43375 9.1339L 5.54045 9.23932L 5.5405 9.23927L 5.43375 9.1339ZM 4.49912 9.15175L 4.39661 9.26126L 4.39662 9.26127L 4.49912 9.15175ZM 0.202755 5.12963L 0.100231 5.23912L 0.100242 5.23913L 0.202755 5.12963ZM 0.202755 4.2018L 0.100242 4.0923L 0.100231 4.09231L 0.202755 4.2018ZM 4.49912 0.179671L 4.60164 0.289175L 4.60164 0.289167L 4.49912 0.179671ZM 5.41541 1.1075L 5.51792 1.217L 5.51793 1.21699L 5.41541 1.1075ZM 1.61461 4.66563L 1.5121 4.55613L 1.39513 4.66563L 1.51209 4.77513L 1.61461 4.66563ZM 5.31288 8.33343C 5.51446 8.52216 5.5206 8.8324 5.327 9.02852L 5.5405 9.23927C 5.85288 8.92282 5.84249 8.41833 5.51793 8.11444L 5.31288 8.33343ZM 5.32705 9.02847C 5.22709 9.12964 5.09289 9.1813 4.95718 9.1813L 4.95718 9.4813C 5.16849 9.4813 5.38098 9.40072 5.54045 9.23932L 5.32705 9.02847ZM 4.95718 9.1813C 4.82821 9.1813 4.70055 9.13484 4.60163 9.04224L 4.39662 9.26127C 4.55415 9.40871 4.75632 9.4813 4.95718 9.4813L 4.95718 9.1813ZM 4.60164 9.04225L 0.305269 5.02012L 0.100242 5.23913L 4.39661 9.26126L 4.60164 9.04225ZM 0.30528 5.02013C 0.205573 4.92677 0.15 4.79858 0.15 4.66563L -0.15 4.66563C -0.15 4.88277 -0.0591657 5.08987 0.100231 5.23912L 0.30528 5.02013ZM 0.15 4.66563C 0.15 4.53287 0.205558 4.40467 0.30528 4.31129L 0.100231 4.09231C -0.0591508 4.24155 -0.15 4.44863 -0.15 4.66563L 0.15 4.66563ZM 0.305269 4.3113L 4.60164 0.289175L 4.39661 0.0701682L 0.100242 4.0923L 0.305269 4.3113ZM 4.60164 0.289167C 4.8055 0.098293 5.13125 0.104606 5.327 0.302906L 5.5405 0.0921532C 5.23027 -0.222127 4.71888 -0.231581 4.3966 0.0701759L 4.60164 0.289167ZM 5.327 0.302906C 5.5206 0.499031 5.51446 0.809266 5.31288 0.998001L 5.51793 1.21699C 5.84249 0.913096 5.85288 0.408609 5.5405 0.0921532L 5.327 0.302906ZM 5.31289 0.997992L 1.5121 4.55613L 1.71712 4.77514L 5.51792 1.217L 5.31289 0.997992ZM 1.51209 4.77513L 5.31289 8.33343L 5.51792 8.11443L 1.71712 4.55613L 1.51209 4.77513Z"/>
+</defs>
+</svg>

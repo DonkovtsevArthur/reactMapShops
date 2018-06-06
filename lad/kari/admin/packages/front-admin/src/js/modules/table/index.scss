@@ -1,0 +1,63 @@
+.block-for-table {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  min-height: calc(100vh - 72px);
+  padding-top: 29px;
+  padding-bottom: 55px;
+
+  & > pagination-block + table {
+    margin-top: 15px;
+  }
+}
+
+.table {
+  display: block;
+  table-layout: fixed;
+  border: none;
+  //overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+.table > tbody {
+  display: block;
+}
+
+.no-data-label {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  opacity: 1;
+  transition: opacity 0.3s;
+
+  &.disabled {
+    opacity: 0;
+  }
+
+  & > p {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36px;
+    font-weight: 500;
+    color: rgba(79, 79, 79, 0.5);
+  }
+}
+
+.block-for-table {
+  pagination-pagesize + pagination-page {
+    margin-left: auto;
+  }
+
+  pagination-pagesize pagination-pagesize-buttons {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  pagination-page pagination-page-buttons {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+}

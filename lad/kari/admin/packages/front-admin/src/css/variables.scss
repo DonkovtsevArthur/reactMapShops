@@ -1,0 +1,44 @@
+// ----------- ШРИФТЫ -----------
+$MuseoSans: 'Museo Sans', sans-serif;
+$FontThin: 100;
+$FontLight: 300;
+$FontRegular: 400;
+$FontMedium: 500;
+$FontBold: 700;
+$FontBlack: 900;
+
+// ----------- ЦВЕТА -----------
+$color-white: #ffffff;
+$color-black-classic: #000000;
+$color-black-faded: #393d39;
+$color-black-light: #4f4f4f;
+$color-gray: #adadad;
+$color-green: #22a84a;
+$color-green-light: #3ac162;
+$color-pink: #ff6f5f;
+$color-gold: #ffd87b;
+$color-blue: #6fb0dc;
+$color-purple: #d073b7;
+
+// ----------- РАЗРЕШЕНИЯ ЭКРАНА -----------
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1024px;
+$big-desktop: 1440px;
+
+@custom-media --tablet ($tablet <= width < $desktop);
+@custom-media --min-tablet (width >= $tablet);
+@custom-media --max-tablet (width < $tablet);
+
+@custom-media --desktop ($desktop <= width < $big-desktop);
+@custom-media --min-desktop (width >= $desktop);
+@custom-media --max-desktop (width < $desktop);
+
+@custom-media --min-big-desktop (width <= $big-desktop);
+@custom-media --big-desktop (width >= $big-desktop);
+
+// ----------- PADDINGS/MARGINS -----------
+$margin-mobile: 20px;
+$margin-tablet: 34px;
+$margin-desktop: 76px;
+$margin-big-desktop: 14vw;

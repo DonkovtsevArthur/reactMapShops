@@ -1,0 +1,32 @@
+.sidebar {
+  min-width: 260px;
+  width: 260px;
+  min-height: 100vh;
+  border: 1px solid;
+}
+
+.sidebar-nav {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.sidebar-nav-link {
+  color: black;
+  font-weight: 700;
+  font-size: 18px;
+  transition: color 0.3s ease;
+
+  &.active {
+    color: #5cd00a;
+  }
+
+  &:hover {
+    color: #0ad0ca;
+  }
+
+  & + a {
+    margin-top: 15px;
+  }
+}

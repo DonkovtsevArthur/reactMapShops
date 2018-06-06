@@ -1,0 +1,36 @@
+.maxwell-textarea-container {
+  width: 100%;
+  border: 1px solid #dad5d3;
+  border-radius: 5px;
+  position: relative;
+  background-color: white;
+
+  &::after {
+    content: '';
+    display: block;
+    background-color: inherit;
+    width: 16px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    z-index: 1;
+    border-radius: 5px;
+  }
+}
+
+.maxwell-textarea {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 15px 16px 15px 16px;
+  overflow-y: scroll !important;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

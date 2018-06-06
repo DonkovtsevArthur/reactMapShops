@@ -1,0 +1,51 @@
+.number-column {
+  width: 50px;
+}
+
+.open-date,
+.close-date {
+  width: 130px;
+}
+
+.user-column {
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.type-column {
+  width: 115px;
+
+  .red {
+    color: red;
+  }
+
+  .green {
+    color: green;
+  }
+
+  .orange {
+    color: orange;
+  }
+
+  .fiol {
+    color: fuchsia;
+  }
+}
+
+.number-column {
+  width: 40px;
+}
+
+.session-number-column {
+  width: 40px;
+}
+
+.close-result-sum-column {
+  width: 70px;
+}
+
+.close-sum-column {
+  width: 70px;
+}

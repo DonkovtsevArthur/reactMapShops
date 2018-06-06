@@ -1,0 +1,26 @@
+{
+  "name": "ecommerce-goods",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "ts-node server.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "infrastructure": "^0.0.2",
+    "moment": "^2.20.1",
+    "mongoose": "4.5.0",
+    "nats": "0.7.24",
+    "nats-hemera": "^2.4.3",
+    "pino": "^4.10.2",
+    "uuid": "^3.1.0"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/mongoose": "4.7.27",
+    "dotenv": "^4.0.0"
+  }
+}

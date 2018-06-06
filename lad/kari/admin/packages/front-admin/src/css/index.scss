@@ -1,0 +1,156 @@
+@import '../fonts/fonts.css';
+@import './variables.scss';
+@import './mixin.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+  width: 0px;
+}
+
+img,
+video,
+audio {
+  max-width: 100%;
+  height: auto;
+}
+
+label,
+button,
+a,
+select {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+img:not([alt]) {
+  border: 2px dashed red;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  hyphens: auto;
+  overflow-wrap: break-word;
+}
+
+:root {
+  --mainColor: gold;
+  --largeFontSize: 24px;
+
+  @media (--desktop) {
+    --mainColor: green;
+    --largeFontSize: 36px;
+  }
+}
+
+body > app-container {
+  font-family: $MuseoSans;
+  font-weight: $FontLight;
+  display: flex;
+  //flex-direction: column;
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  /*@include border-radius(10px);
+  aspect-ratio: '16:9';
+  aspect-ratio: calc('4:3' - 20px);
+  background-image: url('../img/arrow-to-right.svg' param(--color gold));
+  background-image: url('arrow-to-right.svg' param(--color red));
+  background-repeat: no-repeat;*/
+
+  & > main {
+    flex: 1 0 auto;
+    width: 100%;
+  }
+}
+
+/*block-for-items {
+  display: flex;
+  margin: 20px 5px;
+
+  item-block {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #d073b7;
+    height: 100px;
+
+    &:not(:first-child, :last-child) {
+      margin-left: -1px;
+      background-color: yellow;
+    }
+
+    &:matches(:first-child, :last-child) {
+      background-color: yellowgreen;
+    }
+  }
+}
+
+@for $i from 1 through 5 {
+  block-for-items.grow item-block:nth-child(#{$i}) {
+    width: calc($i*10%);
+  }
+}
+
+//by 2 для приращения счётчика на 2
+@for $i from 1 through 5 by 2 {
+  block-for-items.grow item-block:nth-child(#{$i}) {
+    height: calc(100px + $i*10px);
+  }
+}*/
+
+/*$theme: dark;
+
+.hello {
+  @if $theme == dark {
+    color: black;
+  } @else {
+    color: gainsboro;
+  }
+
+  p {
+    margin: 0;
+    font-size: 18px;
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    @include back-img(icon.png);
+    z-index: 5000;
+  }
+
+  &::after {
+    content: 'Other text';
+    display: flex;
+    z-index: 5500;
+  }
+}*/
+
+h1 {
+  font-size: calc(var(--largeFontSize) * 1.5);
+  line-height: 1;
+  margin-bottom: 20px;
+  //color: var(--mainColor);
+
+  /*@media (--max-tablet) {
+    background: color-mod(var(--mainColor) alpha(50%));
+  }*/
+
+  /*@media (--desktop) {
+    background: color(#3ac162 l(80%));
+    border: 1px solid color(#3ac162 a(90%));
+  }*/
+}

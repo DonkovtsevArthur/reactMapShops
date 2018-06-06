@@ -1,0 +1,12 @@
+﻿{
+  "extends": [
+//    "tslint-config-airbnb",
+//    "tslint-eslint-rules",
+//    "tslint-consistent-codestyle"
+  ],
+  "rules": {
+    "no-constant-condition": true,
+	"max-line-length":false
+
+  }
+}

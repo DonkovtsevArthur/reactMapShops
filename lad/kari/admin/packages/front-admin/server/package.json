@@ -1,0 +1,17 @@
+{
+  "name": "react-project",
+  "description": "Server Configuration",
+  "author": "Maxim Lyulyaev",
+  "version": "1.0.0",
+  "repository": "https://maxim-buslaev@github.com/maxim-buslaev/react-project.git",
+  "homepage": "https://maxim-buslaev.github.io/react-project",
+  "license": "MIT",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "hapi": "^17.4.0",
+    "inert": "^5.1.0",
+    "pino": "^4.16.1"
+  }
+}

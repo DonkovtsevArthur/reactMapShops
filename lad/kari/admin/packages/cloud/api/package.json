@@ -1,0 +1,35 @@
+{
+  "name": "cloud-api",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber-js --format=node_modules/cucumber-pretty --require-module ts-node/register --require 'features/**/*.ts'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.2.0",
+    "hapi": "^17.3.1",
+    "joi": "^13.1.2",
+    "pino": "^4.16.1"
+  },
+  "devDependencies": {
+    "@types/boom": "^7.2.0",
+    "@types/chai": "^4.1.2",
+    "@types/cucumber": "^4.0.1",
+    "@types/hapi": "^17.0.9",
+    "@types/joi": "^13.0.7",
+    "@types/pino": "^4.7.1",
+    "@types/sinon": "^4.3.1",
+    "chai": "^4.1.2",
+    "cucumber": "^4.2.1",
+    "cucumber-pretty": "^1.4.1",
+    "sinon": "^4.5.0",
+    "ts-node": "^5.0.1",
+    "tslint": "^5.9.1",
+    "tslint-config-prettier": "^1.10.0",
+    "typescript": "^2.8.1"
+  }
+}

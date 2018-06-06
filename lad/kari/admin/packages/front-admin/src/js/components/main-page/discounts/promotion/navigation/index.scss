@@ -1,0 +1,21 @@
+.navigaton {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.navigaton-link {
+  text-transform: uppercase;
+  font-weight: 600;
+  color: black;
+
+  & + .navigaton-link {
+    margin-left: 15px;
+  }
+
+  &.active {
+    color: #5cd00a;
+    // pointer-events: none;
+    // cursor: pointer;
+  }
+}
