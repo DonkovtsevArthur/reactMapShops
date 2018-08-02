@@ -7,7 +7,7 @@ class SimpleMap extends Component {
     data: [],
     mapState: {
       center: this.props.coords,
-      zoom: 10,
+      zoom: 11,
       behaviors: ["default", "scrollZoom"],
       //отключение дефолтные кнопки у яндекс карт
       controls: []
@@ -16,7 +16,7 @@ class SimpleMap extends Component {
 
   componentDidMount = () => {
     this.setState({
-      data: this.getPoints(2600)
+      data: this.getPoints(3600)
     });
   };
 
